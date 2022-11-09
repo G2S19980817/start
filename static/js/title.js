@@ -1,0 +1,1 @@
+var titleTime,OriginTitile=document.title;document.addEventListener("visibilitychange",(function(){document.hidden?(document.title="看不见我🙈~看不见我🙈~",clearTimeout(titleTime)):(document.title=" ( ๑•̀ㅂ•́) ✧被发现了～",titleTime=setTimeout((function(){document.title=OriginTitile}),2e3))}));

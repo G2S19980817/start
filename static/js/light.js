@@ -1,0 +1,1 @@
+var arr=["#39c5bb","rgb(241, 71, 71)","rgb(241, 162, 71)","rgb(241, 238, 71)","rgb(179, 71, 241)","#1edbff","#ed709b","#5636ed"],idx=0;function changeColor(){document.getElementById("site-title").style.textShadow=arr[idx]+" 0 0 18px",document.getElementById("site-name").style.textShadow=arr[idx]+" 0 0 18px",8==++idx&&(idx=0)}window.setInterval(changeColor,800);
