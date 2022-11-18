@@ -1,152 +1,286 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>java笔记（持续更新） | 郭顺顺的博客</title><meta name="author"><meta name="copyright"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="JAVA基础一、静态类和非静态类之间的区别 内部静态类不需要有指向外部类的引用。但非静态内部类需要持有对外部类的引用 非静态内部类能够访问外部类的静态和非静态成员。静态类不能访问外部类的非静态成员。他只能访问外部类的静态成员 一个非静态内部类不能脱离外部类实体被创建，一个非静态内部类可以访问外部类的数据和方法，因为他就在外部类里面  12345678910111213141516171819202">
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/start/img/fluid.png">
+  <link rel="icon" href="/start/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="JAVA基础一、静态类和非静态类之间的区别 内部静态类不需要有指向外部类的引用。但非静态内部类需要持有对外部类的引用 非静态内部类能够访问外部类的静态和非静态成员。静态类不能访问外部类的非静态成员。他只能访问外部类的静态成员 一个非静态内部类不能脱离外部类实体被创建，一个非静态内部类可以访问外部类的数据和方法，因为他就在外部类里面  12345678910111213141516171819202">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java笔记（持续更新）">
 <meta property="og:url" content="https://guoaccount.github.io/2022/11/15/java%E7%AC%94%E8%AE%B0%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/index.html">
 <meta property="og:site_name" content="郭顺顺的博客">
 <meta property="og:description" content="JAVA基础一、静态类和非静态类之间的区别 内部静态类不需要有指向外部类的引用。但非静态内部类需要持有对外部类的引用 非静态内部类能够访问外部类的静态和非静态成员。静态类不能访问外部类的非静态成员。他只能访问外部类的静态成员 一个非静态内部类不能脱离外部类实体被创建，一个非静态内部类可以访问外部类的数据和方法，因为他就在外部类里面  12345678910111213141516171819202">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8baa24a3-f3f2-4f8f-a01f-519ade739f10/18aa971f-5128-43a4-8c99-39339020624a.png">
+<meta property="og:image" content="https://guoaccount.github.io/file/20220815180900.png">
+<meta property="og:image" content="https://guoaccount.github.io/file/20221017154826.png">
 <meta property="article:published_time" content="2022-11-15T14:13:00.653Z">
 <meta property="article:modified_time" content="2022-11-15T14:13:00.653Z">
 <meta property="article:tag" content="java">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8baa24a3-f3f2-4f8f-a01f-519ade739f10/18aa971f-5128-43a4-8c99-39339020624a.png"><link rel="shortcut icon" href="/start/img/wallhaven-e7jj6r_1920x1080.png"><link rel="canonical" href="https://guoaccount.github.io/2022/11/15/java%E7%AC%94%E8%AE%B0%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/start/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
-  root: '/start/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '',
-  date_suffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: undefined,
-  lightbox: 'fancybox',
-  Snackbar: undefined,
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
-    }
-  },
-  isPhotoFigcaption: false,
-  islazyload: true,
-  isAnchor: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'java笔记（持续更新）',
-  isPost: true,
-  isHome: false,
-  isHighlightShrink: false,
-  isToc: true,
-  postUpdate: '2022-11-15 22:13:00'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
-      }
-    }
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://guoaccount.github.io/file/20220815180900.png">
   
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
   
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
+  
+  <title>java笔记（持续更新） - 郭顺顺的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/start/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/start/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/start/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"guoaccount.github.io","root":"/start/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/start/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/start/js/utils.js" ></script>
+  <script  src="/start/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
     
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/start/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/start/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/start/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/start/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/start/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/start/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/start/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="java笔记（持续更新）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
     
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8baa24a3-f3f2-4f8f-a01f-519ade739f10/60e68ace-9442-4ac7-8075-8d446a9d11f6.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/start/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/start/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/start/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/start/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/start/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/start/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/start/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/start/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/start/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/start/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/start/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8baa24a3-f3f2-4f8f-a01f-519ade739f10/18aa971f-5128-43a4-8c99-39339020624a.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/start/">郭顺顺的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/start/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/start/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/start/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/start/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/start/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/start/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/start/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/start/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">java笔记（持续更新）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-11-15T14:13:00.653Z" title="发表于 2022-11-15 22:13:00">2022-11-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-11-15T14:13:00.653Z" title="更新于 2022-11-15 22:13:00">2022-11-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/start/categories/%E5%90%8E%E7%AB%AF/">后端</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="java笔记（持续更新）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="JAVA基础"><a href="#JAVA基础" class="headerlink" title="JAVA基础"></a>JAVA基础</h1><h5 id="一、静态类和非静态类之间的区别"><a href="#一、静态类和非静态类之间的区别" class="headerlink" title="一、静态类和非静态类之间的区别"></a>一、静态类和非静态类之间的区别</h5><ol>
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-11-15 22:13" pubdate>
+          2022年11月15日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          72 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">java笔记（持续更新）</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="JAVA基础"><a href="#JAVA基础" class="headerlink" title="JAVA基础"></a>JAVA基础</h1><h5 id="一、静态类和非静态类之间的区别"><a href="#一、静态类和非静态类之间的区别" class="headerlink" title="一、静态类和非静态类之间的区别"></a>一、静态类和非静态类之间的区别</h5><ol>
 <li>内部静态类不需要有指向外部类的引用。但非静态内部类需要持有对外部类的引用</li>
 <li>非静态内部类能够访问外部类的静态和非静态成员。静态类不能访问外部类的非静态成员。他只能访问外部类的静态成员</li>
 <li>一个非静态内部类不能脱离外部类实体被创建，一个非静态内部类可以访问外部类的数据和方法，因为他就在外部类里面</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span>: OutClass</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>: xf</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 19.6.27 10:59</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Version</span>: 1.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">OutClass</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  全局静态变量</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">msg</span> <span class="operator">=</span> <span class="string">&quot;i love java&quot;</span>;</span><br><span class="line">     <span class="comment">// 创建静态类</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">staticInnerClass</span>&#123;</span><br><span class="line">         <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">showMsg</span><span class="params">()</span> &#123;</span><br><span class="line">             System.out.println(<span class="string">&quot;静态内部类展示信息:&quot;</span>+msg);</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 创建非静态内部类</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">InnerClass</span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">disPlayMsg</span><span class="params">()</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;非静态内部类展示信息:&quot;</span>+msg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 创建静态内部类实例</span></span><br><span class="line">        <span class="type">staticInnerClass</span> <span class="variable">sic</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">OutClass</span>.staticInnerClass();</span><br><span class="line">        sic.showMsg();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建非静态内部类实例,需要先创建外部类的实例 OutClass().new</span></span><br><span class="line">        <span class="type">InnerClass</span> <span class="variable">ic</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">OutClass</span>().<span class="keyword">new</span> <span class="title class_">InnerClass</span>();</span><br><span class="line">        ic.disPlayMsg();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span>: OutClass</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Description</span>:</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span>: xf</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Date</span>: 19.6.27 10:59</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span>: 1.0</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OutClass</span> &#123;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     *  全局静态变量</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">String</span> <span class="hljs-variable">msg</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;i love java&quot;</span>;<br>     <span class="hljs-comment">// 创建静态类</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">staticInnerClass</span>&#123;<br>         <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showMsg</span><span class="hljs-params">()</span> &#123;<br>             System.out.println(<span class="hljs-string">&quot;静态内部类展示信息:&quot;</span>+msg);<br>         &#125;<br><br>    &#125;<br>    <span class="hljs-comment">// 创建非静态内部类</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">InnerClass</span>&#123;<br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">disPlayMsg</span><span class="hljs-params">()</span> &#123;<br>            System.out.println(<span class="hljs-string">&quot;非静态内部类展示信息:&quot;</span>+msg);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-comment">// 创建静态内部类实例</span><br>        <span class="hljs-type">staticInnerClass</span> <span class="hljs-variable">sic</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">OutClass</span>.staticInnerClass();<br>        sic.showMsg();<br><br>        <span class="hljs-comment">// 创建非静态内部类实例,需要先创建外部类的实例 OutClass().new</span><br>        <span class="hljs-type">InnerClass</span> <span class="hljs-variable">ic</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">OutClass</span>().<span class="hljs-keyword">new</span> <span class="hljs-title class_">InnerClass</span>();<br>        ic.disPlayMsg();<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h5 id="二、迭代器"><a href="#二、迭代器" class="headerlink" title="二、迭代器"></a>二、迭代器</h5><p>迭代器 it 的两个基本操作是 next 、hasNext 和 remove。</p>
 <p>调用 it.next() 会返回迭代器的下一个元素，并且更新迭代器的状态。</p>
@@ -156,7 +290,7 @@
 <p>1、比较者大于被比较者（也就是compareTo方法里面的对象），那么返回正整数</p>
 <p>2、比较者等于被比较者，那么返回0</p>
 <p>3、比较者小于被比较者，那么返回负整数</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Domain</span> <span class="keyword">implements</span> <span class="title class_">Comparable</span>&lt;Domain&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> String str;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Domain</span><span class="params">(String str)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">this</span>.str = str;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compareTo</span><span class="params">(Domain domain)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.str.compareTo(domain.str) &gt; <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">this</span>.str.compareTo(domain.str) == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getStr</span><span class="params">()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Domain</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Comparable</span>&lt;Domain&gt;<br>&#123;<br>    <span class="hljs-keyword">private</span> String str;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Domain</span><span class="hljs-params">(String str)</span><br>    &#123;<br>        <span class="hljs-built_in">this</span>.str = str;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">compareTo</span><span class="hljs-params">(Domain domain)</span><br>    &#123;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.str.compareTo(domain.str) &gt; <span class="hljs-number">0</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.str.compareTo(domain.str) == <span class="hljs-number">0</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">else</span> <br>            <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>    &#125;<br>    <br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getStr</span><span class="hljs-params">()</span><br>    &#123;<br>        <span class="hljs-keyword">return</span> str;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h2 id="2-Comparator"><a href="#2-Comparator" class="headerlink" title="2.Comparator"></a>2.Comparator</h2><p>Comparator可以认为是是一个<strong>外比较器</strong>，个人认为有两种情况可以使用实现Comparator接口的方式：</p>
 <p>1、一个对象不支持自己和自己比较（没有实现Comparable接口），但是又想对两个对象进行比较</p>
@@ -165,7 +299,7 @@
 <p>1、o1大于o2，返回正整数</p>
 <p>2、o1等于o2，返回0</p>
 <p>3、o1小于o3，返回负整数</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DomainComparator</span> <span class="keyword">implements</span> <span class="title class_">Comparator</span>&lt;Domain&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Domain domain1, Domain domain2)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (domain1.getStr().compareTo(domain2.getStr()) &gt; <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (domain1.getStr().compareTo(domain2.getStr()) == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> List&lt;GrabFilfox&gt; collect = grabFilfoxeList.stream().filter(a -&gt; minerid.equals(a.getMinerId())).collect(Collectors.toList());</span><br><span class="line">            Collections.sort(collect, <span class="keyword">new</span> <span class="title class_">Comparator</span>&lt;GrabFilfox&gt;() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(GrabFilfox o1, GrabFilfox o2)</span> &#123;</span><br><span class="line">                    Long sortLong=o2.getTime().getTime()-o1.getTime().getTime();</span><br><span class="line">                    <span class="keyword">if</span> (sortLong&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">                    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (sortLong&lt;<span class="number">0</span>)&#123;</span><br><span class="line">                        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">                    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DomainComparator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Comparator</span>&lt;Domain&gt;<br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">compare</span><span class="hljs-params">(Domain domain1, Domain domain2)</span><br>    &#123;<br>        <span class="hljs-keyword">if</span> (domain1.getStr().compareTo(domain2.getStr()) &gt; <span class="hljs-number">0</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (domain1.getStr().compareTo(domain2.getStr()) == <span class="hljs-number">0</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">else</span> <br>            <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>    &#125;<br>&#125;<br><br> List&lt;GrabFilfox&gt; collect = grabFilfoxeList.stream().filter(a -&gt; minerid.equals(a.getMinerId())).collect(Collectors.toList());<br>            Collections.sort(collect, <span class="hljs-keyword">new</span> <span class="hljs-title class_">Comparator</span>&lt;GrabFilfox&gt;() &#123;<br>                <span class="hljs-meta">@Override</span><br>                <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">compare</span><span class="hljs-params">(GrabFilfox o1, GrabFilfox o2)</span> &#123;<br>                    Long sortLong=o2.getTime().getTime()-o1.getTime().getTime();<br>                    <span class="hljs-keyword">if</span> (sortLong&gt;<span class="hljs-number">0</span>)&#123;<br>                        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>                    &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (sortLong&lt;<span class="hljs-number">0</span>)&#123;<br>                        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>                    &#125;<span class="hljs-keyword">else</span> &#123;<br>                        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>                    &#125;<br>                &#125;<br></code></pre></td></tr></table></figure>
 
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总结一下，两种比较器Comparable和Comparator，后者相比前者有如下优点：</p>
 <h3 id="1、如果实现类没有实现Comparable接口，又想对两个类进行比较（或者实现类实现了Comparable接口，但是对compareTo方法内的比较算法不满意），那么可以实现Comparator接口，自定义一个比较器，写比较算法"><a href="#1、如果实现类没有实现Comparable接口，又想对两个类进行比较（或者实现类实现了Comparable接口，但是对compareTo方法内的比较算法不满意），那么可以实现Comparator接口，自定义一个比较器，写比较算法" class="headerlink" title="1、如果实现类没有实现Comparable接口，又想对两个类进行比较（或者实现类实现了Comparable接口，但是对compareTo方法内的比较算法不满意），那么可以实现Comparator接口，自定义一个比较器，写比较算法"></a>1、如果实现类没有实现Comparable接口，又想对两个类进行比较（或者实现类实现了Comparable接口，但是对compareTo方法内的比较算法不满意），那么可以实现Comparator接口，自定义一个比较器，写比较算法</h3><h3 id="2、实现Comparable接口的方式比实现Comparator接口的耦合性-要强一些，如果要修改比较算法，要修改Comparable接口的实现类，而实现Comparator的类是在外部进行比较的，不需要对实现类有任何修-改。从这个角度说，其实有些不太好，尤其在我们将实现类的-class文件打成一个-jar文件提供给开发者使用的时候。实际上实现Comparator-接口的方式后面会写到就是一种典型的策略模式。"><a href="#2、实现Comparable接口的方式比实现Comparator接口的耦合性-要强一些，如果要修改比较算法，要修改Comparable接口的实现类，而实现Comparator的类是在外部进行比较的，不需要对实现类有任何修-改。从这个角度说，其实有些不太好，尤其在我们将实现类的-class文件打成一个-jar文件提供给开发者使用的时候。实际上实现Comparator-接口的方式后面会写到就是一种典型的策略模式。" class="headerlink" title="2、实现Comparable接口的方式比实现Comparator接口的耦合性 要强一些，如果要修改比较算法，要修改Comparable接口的实现类，而实现Comparator的类是在外部进行比较的，不需要对实现类有任何修 改。从这个角度说，其实有些不太好，尤其在我们将实现类的.class文件打成一个.jar文件提供给开发者使用的时候。实际上实现Comparator 接口的方式后面会写到就是一种典型的策略模式。"></a>2、实现Comparable接口的方式比实现Comparator接口的耦合性 要强一些，如果要修改比较算法，要修改Comparable接口的实现类，而实现Comparator的类是在外部进行比较的，不需要对实现类有任何修 改。从这个角度说，其实有些不太好，尤其在我们将实现类的.class文件打成一个.jar文件提供给开发者使用的时候。实际上实现Comparator 接口的方式后面会写到就是一种典型的<strong>策略模式</strong>。</h3><h3 id="3-Boolean值，返回给前端字段时，前缀不能带is，因为序列化传输的时候is会被去除掉。"><a href="#3-Boolean值，返回给前端字段时，前缀不能带is，因为序列化传输的时候is会被去除掉。" class="headerlink" title="3.Boolean值，返回给前端字段时，前缀不能带is，因为序列化传输的时候is会被去除掉。"></a><font color="red">3.Boolean值，返回给前端字段时，前缀不能带is，因为序列化传输的时候is会被去除掉。</font></h3><h1 id="Java8"><a href="#Java8" class="headerlink" title="Java8"></a>Java8</h1><h2 id="1-Java-Lambda-表达式"><a href="#1-Java-Lambda-表达式" class="headerlink" title="1.Java Lambda 表达式"></a>1.Java Lambda 表达式</h2><p>Lambda 表达式，也可称为闭包，它是推动 Java 8 发布的最重要新特性。</p>
@@ -179,15 +313,15 @@
 <li><strong>可选的返回关键字：</strong>如果主体只有一个表达式返回值则编译器会自动返回值，大括号需要指定明表达式返回了一个数值。</li>
 </ul>
 <h2 id="Lambda-表达式实例"><a href="#Lambda-表达式实例" class="headerlink" title="Lambda 表达式实例"></a>Lambda 表达式实例</h2><p>Lambda 表达式的简单例子:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 不需要参数,返回值为 5  </span></span><br><span class="line">() -&gt; <span class="number">5</span>  </span><br><span class="line"><span class="comment">// 2. 接收一个参数(数字类型),返回其2倍的值  </span></span><br><span class="line">x -&gt; <span class="number">2</span> * x  </span><br><span class="line"><span class="comment">// 3. 接受2个参数(数字),并返回他们的差值  </span></span><br><span class="line">(x, y) -&gt; x – y  </span><br><span class="line"><span class="comment">// 4. 接收2个int型整数,返回他们的和  </span></span><br><span class="line">(<span class="type">int</span> x, <span class="type">int</span> y) -&gt; x + y    </span><br><span class="line"><span class="comment">// 5. 接受一个 string 对象,并在控制台打印,不返回任何值(看起来像是返回void)  </span></span><br><span class="line">(String s) -&gt; System.out.print(s)</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 1. 不需要参数,返回值为 5  </span><br>() -&gt; <span class="hljs-number">5</span>  <br><span class="hljs-comment">// 2. 接收一个参数(数字类型),返回其2倍的值  </span><br>x -&gt; <span class="hljs-number">2</span> * x  <br><span class="hljs-comment">// 3. 接受2个参数(数字),并返回他们的差值  </span><br>(x, y) -&gt; x – y  <br><span class="hljs-comment">// 4. 接收2个int型整数,返回他们的和  </span><br>(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y) -&gt; x + y    <br><span class="hljs-comment">// 5. 接受一个 string 对象,并在控制台打印,不返回任何值(看起来像是返回void)  </span><br>(String s) -&gt; System.out.print(s)<br></code></pre></td></tr></table></figure>
 
-<h1 id="多线程：Lambda-表达式创建线程"><a href="#多线程：Lambda-表达式创建线程" class="headerlink" title="多线程：Lambda 表达式创建线程"></a>多线程：Lambda 表达式创建线程</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//新建线程1.8之前使用匿名内部类</span></span><br><span class="line">       <span class="keyword">new</span> <span class="title class_">Thread</span>(<span class="keyword">new</span> <span class="title class_">Runnable</span>() &#123;</span><br><span class="line">           <span class="meta">@Override</span></span><br><span class="line">           <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">               System.out.println(<span class="string">&quot;开启一个新线程&quot;</span>);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;).start();</span><br><span class="line">       <span class="comment">//1.8使用lambda</span></span><br><span class="line">       <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; System.out.println(<span class="string">&quot;lambda开启线程&quot;</span>)).start();</span><br></pre></td></tr></table></figure>
+<h1 id="多线程：Lambda-表达式创建线程"><a href="#多线程：Lambda-表达式创建线程" class="headerlink" title="多线程：Lambda 表达式创建线程"></a>多线程：Lambda 表达式创建线程</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//新建线程1.8之前使用匿名内部类</span><br>       <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Runnable</span>() &#123;<br>           <span class="hljs-meta">@Override</span><br>           <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> &#123;<br>               System.out.println(<span class="hljs-string">&quot;开启一个新线程&quot;</span>);<br>           &#125;<br>       &#125;).start();<br>       <span class="hljs-comment">//1.8使用lambda</span><br>       <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(() -&gt; System.out.println(<span class="hljs-string">&quot;lambda开启线程&quot;</span>)).start();<br></code></pre></td></tr></table></figure>
 
 <h5 id="stream流中间操作，转换流：flatMap"><a href="#stream流中间操作，转换流：flatMap" class="headerlink" title="stream流中间操作，转换流：flatMap"></a>stream流中间操作，转换流：flatMap</h5><p>flatMap可以把流中的一条元素返回多个流，（自动化展开，扁平化处理。例如：就是把一个集合对象展开，返回集合中的元素，然后返回的元素被流包裹）然后把多条流串联起来。</p>
 <p>map也是一个转换流，只不过是一对一的转换流，把流转换成流中元素函数处理后的新的流。（类似JS中map遍历，返回循环体每次对遍历元素处理后的结果，返回处理后的集合）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;String&gt; strings = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">     strings.add(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">     strings.add(<span class="string">&quot;2&quot;</span>);</span><br><span class="line">     strings.add(<span class="string">&quot;3&quot;</span>);</span><br><span class="line"></span><br><span class="line">     <span class="type">AddressVO</span> <span class="variable">addressVO</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AddressVO</span>();</span><br><span class="line"></span><br><span class="line">     addressVO.setId(<span class="number">0L</span>);</span><br><span class="line">     addressVO.setContent(strings);</span><br><span class="line"></span><br><span class="line">     <span class="type">AddressVO</span> <span class="variable">addressVO2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AddressVO</span>();</span><br><span class="line"></span><br><span class="line">     addressVO2.setId(<span class="number">1L</span>);</span><br><span class="line">     addressVO2.setContent(strings);</span><br><span class="line"></span><br><span class="line">     ArrayList&lt;AddressVO&gt; arrayList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">     arrayList.add(addressVO);</span><br><span class="line">     arrayList.add(addressVO2);</span><br><span class="line"></span><br><span class="line">     List&lt;Object&gt; collect = arrayList.stream().flatMap((Function&lt;AddressVO, Stream&lt;?&gt;&gt;) addressVO1 -&gt; addressVO1.getContent().stream()).collect(Collectors.toList());</span><br><span class="line"></span><br><span class="line">     <span class="keyword">for</span> (Object o:collect)&#123;</span><br><span class="line"></span><br><span class="line">         System.out.println(o);</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs java">ArrayList&lt;String&gt; strings = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br><br>     strings.add(<span class="hljs-string">&quot;1&quot;</span>);<br>     strings.add(<span class="hljs-string">&quot;2&quot;</span>);<br>     strings.add(<span class="hljs-string">&quot;3&quot;</span>);<br><br>     <span class="hljs-type">AddressVO</span> <span class="hljs-variable">addressVO</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">AddressVO</span>();<br><br>     addressVO.setId(<span class="hljs-number">0L</span>);<br>     addressVO.setContent(strings);<br><br>     <span class="hljs-type">AddressVO</span> <span class="hljs-variable">addressVO2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">AddressVO</span>();<br><br>     addressVO2.setId(<span class="hljs-number">1L</span>);<br>     addressVO2.setContent(strings);<br><br>     ArrayList&lt;AddressVO&gt; arrayList = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br><br>     arrayList.add(addressVO);<br>     arrayList.add(addressVO2);<br><br>     List&lt;Object&gt; collect = arrayList.stream().flatMap((Function&lt;AddressVO, Stream&lt;?&gt;&gt;) addressVO1 -&gt; addressVO1.getContent().stream()).collect(Collectors.toList());<br><br>     <span class="hljs-keyword">for</span> (Object o:collect)&#123;<br><br>         System.out.println(o);<br>     &#125;<br></code></pre></td></tr></table></figure>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/file/20220815180900.png"></p>
+<p><img src="/file/20220815180900.png" srcset="/start/img/loading.gif" lazyload></p>
 <h1 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h1><p>1.设计模式：代理模式</p>
 <p>代理对象可以察觉到它代理的实例对象的调用，在代理对象中就可以加入自己的业务代码。</p>
 <p><strong>实现<strong><strong>AOP</strong></strong>的两种技术**</strong>(<strong><strong>方式</strong></strong>)** </p>
@@ -199,17 +333,17 @@
 <p>原理就是创建一个目标类的子类作为代理对象。</p>
 <h5 id="使用注解创建"><a href="#使用注解创建" class="headerlink" title="使用注解创建"></a>使用注解创建</h5><p>步骤1：创建接口。创建接口的实现类作为目标类。</p>
 <p>步骤2：创建切面类。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>:  </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>:     </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Component</span> 被Spring管理</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Aspect</span> 声明他是一个aop的类（切面类）</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyAspect</span> &#123;</span><br><span class="line">    <span class="comment">/*声明一个切入点，连接点是一个方法，切入点就是被选中的方法 * 被选中的方法可能不止一个，我们定义一个方法用来代表切入点 * UserService.*:UserService中的所有方法 * 把UserService中的所以方法都配置成了切入点 * antMethod方法就作为所有切入点的代表 * */</span></span><br><span class="line">    <span class="meta">@Pointcut(&quot;execution(* com.aop.service.UserService.*(..))&quot;)</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">antMethod</span><span class="params">()</span>&#123;&#125; </span><br><span class="line">    </span><br><span class="line">    <span class="comment">/*在目标方法执行前执行*/</span> </span><br><span class="line">    <span class="meta">@Before(&quot;anyMethod()&quot;)</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doBeforeCheck</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;前置通知&quot;</span>); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*在目标方法执行后执行*/</span> </span><br><span class="line">    <span class="meta">@AfterReturning(&quot;anyMethod()&quot;)</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doAfterReturning</span><span class="params">()</span>&#123; </span><br><span class="line">        System.out.println(<span class="string">&quot;后置通知&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*无论目标方法是否出现异常都执行 */</span> </span><br><span class="line">    <span class="meta">@After(&quot;anyMethod()&quot;)</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doAfter</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;最终通知&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span>:  </span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Date</span>:     </span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Component</span> 被Spring管理</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Aspect</span> 声明他是一个aop的类（切面类）</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Component</span><br><span class="hljs-meta">@Aspect</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyAspect</span> &#123;<br>    <span class="hljs-comment">/*声明一个切入点，连接点是一个方法，切入点就是被选中的方法 * 被选中的方法可能不止一个，我们定义一个方法用来代表切入点 * UserService.*:UserService中的所有方法 * 把UserService中的所以方法都配置成了切入点 * antMethod方法就作为所有切入点的代表 * */</span><br>    <span class="hljs-meta">@Pointcut(&quot;execution(* com.aop.service.UserService.*(..))&quot;)</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">antMethod</span><span class="hljs-params">()</span>&#123;&#125; <br>    <br>    <span class="hljs-comment">/*在目标方法执行前执行*/</span> <br>    <span class="hljs-meta">@Before(&quot;anyMethod()&quot;)</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doBeforeCheck</span><span class="hljs-params">()</span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;前置通知&quot;</span>); <br>    &#125;<br>    <span class="hljs-comment">/*在目标方法执行后执行*/</span> <br>    <span class="hljs-meta">@AfterReturning(&quot;anyMethod()&quot;)</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doAfterReturning</span><span class="hljs-params">()</span>&#123; <br>        System.out.println(<span class="hljs-string">&quot;后置通知&quot;</span>);<br>    &#125;<br>    <span class="hljs-comment">/*无论目标方法是否出现异常都执行 */</span> <br>    <span class="hljs-meta">@After(&quot;anyMethod()&quot;)</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doAfter</span><span class="hljs-params">()</span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;最终通知&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>在切面类中创建切入点。在切入点中创建连接点。</p>
 <p>步骤3：给切入点配置通知。</p>
 <p>实现效果：调用目标类的方法，会给目标类的对应方法调用通知。</p>
-<h1 id="原子类"><a href="#原子类" class="headerlink" title="原子类"></a>原子类</h1><p> 1.原子类<a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzI4Njc5NjM1NQ==&chksm=ebd5d441dca25d57185e386175c0259e2c812e69b840dcaeb86365175f5e17251d04f9779071&idx=1&mid=2247494509&scene=21&sn=f2ec89e631bea4b11e6e3640b0b0e42a#wechat_redirect">相比于普通的锁</a>，粒度更细、效率更高(除了高度竞争的情况下) 。（原子操作线程安全）。<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/file/20221017154826.png"></p>
+<h1 id="原子类"><a href="#原子类" class="headerlink" title="原子类"></a>原子类</h1><p> 1.原子类<a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzI4Njc5NjM1NQ==&chksm=ebd5d441dca25d57185e386175c0259e2c812e69b840dcaeb86365175f5e17251d04f9779071&idx=1&mid=2247494509&scene=21&sn=f2ec89e631bea4b11e6e3640b0b0e42a#wechat_redirect">相比于普通的锁</a>，粒度更细、效率更高(除了高度竞争的情况下) 。（原子操作线程安全）。<br><img src="/file/20221017154826.png" srcset="/start/img/loading.gif" lazyload></p>
 <p> <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C/1880992">原子操作_百度百科 (baidu.com)</a> </p>
 <h1 id="Servlet-post接收form-data参数值java"><a href="#Servlet-post接收form-data参数值java" class="headerlink" title="Servlet post接收form-data参数值java"></a>Servlet post接收form-data参数值java</h1><p>编写接口的时候，使用“multipart/form-data”传输时，如果使用request.getParameter（）接收参数，数值会为null，可以使用下面方法接受数据：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException &#123;</span><br><span class="line">        <span class="comment">// 针对post请求，设置允许接收中文</span></span><br><span class="line">        request.setCharacterEncoding(<span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line">        response.setContentType(<span class="string">&quot;text/html;charset=utf-8&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;添加任务&quot;</span>);</span><br><span class="line">        <span class="type">PrintWriter</span> <span class="variable">out</span> <span class="operator">=</span> response.getWriter();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">DiskFileItemFactory</span> <span class="variable">factory</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DiskFileItemFactory</span>();   </span><br><span class="line">            <span class="type">ServletFileUpload</span> <span class="variable">upload</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ServletFileUpload</span>(factory);   </span><br><span class="line">            upload.setHeaderEncoding(<span class="string">&quot;UTF-8&quot;</span>);  </span><br><span class="line">            <span class="type">List</span> <span class="variable">items</span> <span class="operator">=</span> upload.parseRequest(request);  </span><br><span class="line">            <span class="type">Map</span> <span class="variable">params</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HashMap</span>();   </span><br><span class="line">            <span class="keyword">for</span>(Object object:items)&#123;  </span><br><span class="line">                <span class="type">FileItem</span> <span class="variable">fileItem</span> <span class="operator">=</span> (FileItem) object;   </span><br><span class="line">                <span class="keyword">if</span> (fileItem.isFormField()) &#123;   </span><br><span class="line">                    params.put(fileItem.getFieldName(), fileItem.getString(<span class="string">&quot;utf-8&quot;</span>));<span class="comment">//如果你页面编码是utf-8的   </span></span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;   </span><br><span class="line">            <span class="comment">//使用params.get获取参数值</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">send_time</span> <span class="operator">=</span> (String) params.get(<span class="string">&quot;send_time&quot;</span>);</span><br><span class="line">             。。。。。。。。</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 输出数据</span></span><br><span class="line">            out.println(<span class="string">&quot;1&quot;</span>);   </span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (FileUploadException e1) &#123;</span><br><span class="line">            e1.printStackTrace();</span><br><span class="line">        &#125;   </span><br><span class="line">        out.close();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doPost</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="hljs-keyword">throws</span> ServletException, IOException &#123;<br>        <span class="hljs-comment">// 针对post请求，设置允许接收中文</span><br>        request.setCharacterEncoding(<span class="hljs-string">&quot;utf-8&quot;</span>);<br>        response.setContentType(<span class="hljs-string">&quot;text/html;charset=utf-8&quot;</span>);<br>        System.out.println(<span class="hljs-string">&quot;添加任务&quot;</span>);<br>        <span class="hljs-type">PrintWriter</span> <span class="hljs-variable">out</span> <span class="hljs-operator">=</span> response.getWriter();<br><br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-type">DiskFileItemFactory</span> <span class="hljs-variable">factory</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">DiskFileItemFactory</span>();   <br>            <span class="hljs-type">ServletFileUpload</span> <span class="hljs-variable">upload</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ServletFileUpload</span>(factory);   <br>            upload.setHeaderEncoding(<span class="hljs-string">&quot;UTF-8&quot;</span>);  <br>            <span class="hljs-type">List</span> <span class="hljs-variable">items</span> <span class="hljs-operator">=</span> upload.parseRequest(request);  <br>            <span class="hljs-type">Map</span> <span class="hljs-variable">params</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>();   <br>            <span class="hljs-keyword">for</span>(Object object:items)&#123;  <br>                <span class="hljs-type">FileItem</span> <span class="hljs-variable">fileItem</span> <span class="hljs-operator">=</span> (FileItem) object;   <br>                <span class="hljs-keyword">if</span> (fileItem.isFormField()) &#123;   <br>                    params.put(fileItem.getFieldName(), fileItem.getString(<span class="hljs-string">&quot;utf-8&quot;</span>));<span class="hljs-comment">//如果你页面编码是utf-8的   </span><br>                &#125;  <br>            &#125;   <br>            <span class="hljs-comment">//使用params.get获取参数值</span><br>            <span class="hljs-type">String</span> <span class="hljs-variable">send_time</span> <span class="hljs-operator">=</span> (String) params.get(<span class="hljs-string">&quot;send_time&quot;</span>);<br>             。。。。。。。。<br><br>            <span class="hljs-comment">// 输出数据</span><br>            out.println(<span class="hljs-string">&quot;1&quot;</span>);   <br><br>        &#125; <span class="hljs-keyword">catch</span> (FileUploadException e1) &#123;<br>            e1.printStackTrace();<br>        &#125;   <br>        out.close();<br>    &#125;<br></code></pre></td></tr></table></figure>
 <p>前提是需要导入commons-fileupload-1.3.jar 和 commons-io-2.5.jar 包<br>jar包下载：<br><a target="_blank" rel="noopener" href="http://download.csdn.net/download/z740852294/10030503">http://download.csdn.net/download/z740852294/10030503</a></p>
-<h1 id="线程安全的时间操作"><a href="#线程安全的时间操作" class="headerlink" title="线程安全的时间操作"></a>线程安全的时间操作</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取当前时间 （LocalDateTime（线程安全） 代替 Calendar（线程不安全））  </span></span><br><span class="line"><span class="type">LocalDateTime</span> <span class="variable">now</span> <span class="operator">=</span> LocalDateTime.now();  </span><br><span class="line"><span class="comment">//当前时间加分钟  </span></span><br><span class="line">now = now.plusMinutes(testItems.getTestTime());  </span><br><span class="line"><span class="comment">//LocalDateTime 转 Date</span></span><br><span class="line"><span class="type">Date</span> <span class="variable">deadline</span> <span class="operator">=</span> Date.from(now.atZone(ZoneId.systemDefault()).toInstant());</span><br></pre></td></tr></table></figure>
+<h1 id="线程安全的时间操作"><a href="#线程安全的时间操作" class="headerlink" title="线程安全的时间操作"></a>线程安全的时间操作</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//获取当前时间 （LocalDateTime（线程安全） 代替 Calendar（线程不安全））  </span><br><span class="hljs-type">LocalDateTime</span> <span class="hljs-variable">now</span> <span class="hljs-operator">=</span> LocalDateTime.now();  <br><span class="hljs-comment">//当前时间加分钟  </span><br>now = now.plusMinutes(testItems.getTestTime());  <br><span class="hljs-comment">//LocalDateTime 转 Date</span><br><span class="hljs-type">Date</span> <span class="hljs-variable">deadline</span> <span class="hljs-operator">=</span> Date.from(now.atZone(ZoneId.systemDefault()).toInstant());<br></code></pre></td></tr></table></figure>
 
 <h1 id="随机数"><a href="#随机数" class="headerlink" title="随机数"></a>随机数</h1><p>1、不带参数的nextInt()会生成所有有效的整数（包含正数，负数，0）</p>
 <p>2、带参的nextInt(int x)则会生成一个范围在0~x（不包含X）内的任意正整数</p>
@@ -218,120 +352,370 @@
 <p>3、生成一个指定范围内的整数</p>
 <p>1.Math.random()方法返回一个[0.0 , 1.0)的伪随机double类型的随机数</p>
 <p>符合在[min,max]范围内的整数</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>    <span class="variable">num</span> <span class="operator">=</span> min + (<span class="type">int</span>)(Math.random() * (max-min+<span class="number">1</span>));</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>    <span class="hljs-variable">num</span> <span class="hljs-operator">=</span> min + (<span class="hljs-type">int</span>)(Math.random() * (max-min+<span class="hljs-number">1</span>));<br></code></pre></td></tr></table></figure>
 
 <p>用nextInt方法生成区间范围内的随机整数</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Random rand=<span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n1=rand.nextInt(<span class="number">100</span>);<span class="comment">//返回值在范围[0,100) 即[0,99]</span></span><br><span class="line"><span class="type">int</span> n2=rand.nextInt(<span class="number">100</span>)+<span class="number">1</span>;<span class="comment">//[1,100]内的随机整数</span></span><br><span class="line"><span class="type">int</span> n3=rand.nextInt(<span class="number">80</span>)+<span class="number">10</span>;<span class="comment">//[10,89]内的随机整数</span></span><br><span class="line"><span class="type">int</span> n4=rand.nextInt(<span class="number">27</span>)+<span class="number">82</span>;<span class="comment">//[82,108]内的随机整数</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java">Random rand=<span class="hljs-keyword">new</span> <span class="hljs-title class_">Random</span>();<br><br><span class="hljs-type">int</span> n1=rand.nextInt(<span class="hljs-number">100</span>);<span class="hljs-comment">//返回值在范围[0,100) 即[0,99]</span><br><span class="hljs-type">int</span> n2=rand.nextInt(<span class="hljs-number">100</span>)+<span class="hljs-number">1</span>;<span class="hljs-comment">//[1,100]内的随机整数</span><br><span class="hljs-type">int</span> n3=rand.nextInt(<span class="hljs-number">80</span>)+<span class="hljs-number">10</span>;<span class="hljs-comment">//[10,89]内的随机整数</span><br><span class="hljs-type">int</span> n4=rand.nextInt(<span class="hljs-number">27</span>)+<span class="hljs-number">82</span>;<span class="hljs-comment">//[82,108]内的随机整数</span><br></code></pre></td></tr></table></figure>
 
 <h1 id="java-POI-笔记"><a href="#java-POI-笔记" class="headerlink" title="java - POI 笔记"></a>java - POI 笔记</h1><p>当单元格内容是空时，可能会出现空指针的情况。</p>
 <p>使用以下方式给单元格赋值。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">c = row.getCell(j);  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">if</span> (c==<span class="literal">null</span>)&#123;  </span><br><span class="line">    row.createCell(j).setCellValue(<span class="keyword">new</span> <span class="title class_">HSSFRichTextString</span>(<span class="string">&quot;&quot;</span>));  </span><br><span class="line">    c = row.getCell(j);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java">c = row.getCell(j);  <br>  <br><span class="hljs-keyword">if</span> (c==<span class="hljs-literal">null</span>)&#123;  <br>    row.createCell(j).setCellValue(<span class="hljs-keyword">new</span> <span class="hljs-title class_">HSSFRichTextString</span>(<span class="hljs-string">&quot;&quot;</span>));  <br>    c = row.getCell(j);  <br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h1 id="java写入文件"><a href="#java写入文件" class="headerlink" title="java写入文件"></a>java写入文件</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="type">File</span> <span class="variable">file</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;D:/mapData.json&quot;</span>);  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">if</span>(!file.exists())&#123;  </span><br><span class="line">    file.createNewFile();  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="type">FileWriter</span> <span class="variable">fileWriter</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileWriter</span>(file.getAbsoluteFile());  </span><br><span class="line"><span class="type">BufferedWriter</span> <span class="variable">bw</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedWriter</span>(fileWriter);  </span><br><span class="line">bw.write(jsonObject.toJSONString());  </span><br><span class="line">bw.close();  </span><br><span class="line">System.out.println(<span class="string">&quot;finish&quot;</span>);  </span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+<h1 id="java写入文件"><a href="#java写入文件" class="headerlink" title="java写入文件"></a>java写入文件</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-type">File</span> <span class="hljs-variable">file</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">File</span>(<span class="hljs-string">&quot;D:/mapData.json&quot;</span>);  <br>  <br><span class="hljs-keyword">if</span>(!file.exists())&#123;  <br>    file.createNewFile();  <br>&#125;  <br>  <br><span class="hljs-type">FileWriter</span> <span class="hljs-variable">fileWriter</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">FileWriter</span>(file.getAbsoluteFile());  <br><span class="hljs-type">BufferedWriter</span> <span class="hljs-variable">bw</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BufferedWriter</span>(fileWriter);  <br>bw.write(jsonObject.toJSONString());  <br>bw.close();  <br>System.out.println(<span class="hljs-string">&quot;finish&quot;</span>);  <br>  <br></code></pre></td></tr></table></figure>
 
-<h1 id="java中的包装类"><a href="#java中的包装类" class="headerlink" title="java中的包装类"></a>java中的包装类</h1></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://guoaccount.github.io"></a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://guoaccount.github.io/2022/11/15/java%E7%AC%94%E8%AE%B0%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/">https://guoaccount.github.io/2022/11/15/java%E7%AC%94%E8%AE%B0%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://guoaccount.github.io" target="_blank">郭顺顺的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/start/tags/java/">java</a></div><div class="post_share"><div class="social-share" data-image="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8baa24a3-f3f2-4f8f-a01f-519ade739f10/18aa971f-5128-43a4-8c99-39339020624a.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/start/2022/11/15/echart/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8baa24a3-f3f2-4f8f-a01f-519ade739f10/18aa971f-5128-43a4-8c99-39339020624a.png" onerror="onerror=null;src='/start/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">echart</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8baa24a3-f3f2-4f8f-a01f-519ade739f10/60e68ace-9442-4ac7-8075-8d446a9d11f6.png" onerror="this.onerror=null;this.src='/start/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name"></div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/start/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/start/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/start/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/GuoAccount"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">永远相信美好的事情即将发生！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JAVA%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">JAVA基础</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%9D%99%E6%80%81%E7%B1%BB%E5%92%8C%E9%9D%9E%E9%9D%99%E6%80%81%E7%B1%BB%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">一、静态类和非静态类之间的区别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-number">1.0.0.0.2.</span> <span class="toc-text">二、迭代器</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E6%8E%92%E5%BA%8F"><span class="toc-number">2.</span> <span class="toc-text">集合排序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Comparable"><span class="toc-number">2.1.</span> <span class="toc-text">1.Comparable</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Comparator"><span class="toc-number">2.2.</span> <span class="toc-text">2.Comparator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">2.3.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E5%A6%82%E6%9E%9C%E5%AE%9E%E7%8E%B0%E7%B1%BB%E6%B2%A1%E6%9C%89%E5%AE%9E%E7%8E%B0Comparable%E6%8E%A5%E5%8F%A3%EF%BC%8C%E5%8F%88%E6%83%B3%E5%AF%B9%E4%B8%A4%E4%B8%AA%E7%B1%BB%E8%BF%9B%E8%A1%8C%E6%AF%94%E8%BE%83%EF%BC%88%E6%88%96%E8%80%85%E5%AE%9E%E7%8E%B0%E7%B1%BB%E5%AE%9E%E7%8E%B0%E4%BA%86Comparable%E6%8E%A5%E5%8F%A3%EF%BC%8C%E4%BD%86%E6%98%AF%E5%AF%B9compareTo%E6%96%B9%E6%B3%95%E5%86%85%E7%9A%84%E6%AF%94%E8%BE%83%E7%AE%97%E6%B3%95%E4%B8%8D%E6%BB%A1%E6%84%8F%EF%BC%89%EF%BC%8C%E9%82%A3%E4%B9%88%E5%8F%AF%E4%BB%A5%E5%AE%9E%E7%8E%B0Comparator%E6%8E%A5%E5%8F%A3%EF%BC%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E6%AF%94%E8%BE%83%E5%99%A8%EF%BC%8C%E5%86%99%E6%AF%94%E8%BE%83%E7%AE%97%E6%B3%95"><span class="toc-number">2.3.1.</span> <span class="toc-text">1、如果实现类没有实现Comparable接口，又想对两个类进行比较（或者实现类实现了Comparable接口，但是对compareTo方法内的比较算法不满意），那么可以实现Comparator接口，自定义一个比较器，写比较算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E5%AE%9E%E7%8E%B0Comparable%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%96%B9%E5%BC%8F%E6%AF%94%E5%AE%9E%E7%8E%B0Comparator%E6%8E%A5%E5%8F%A3%E7%9A%84%E8%80%A6%E5%90%88%E6%80%A7-%E8%A6%81%E5%BC%BA%E4%B8%80%E4%BA%9B%EF%BC%8C%E5%A6%82%E6%9E%9C%E8%A6%81%E4%BF%AE%E6%94%B9%E6%AF%94%E8%BE%83%E7%AE%97%E6%B3%95%EF%BC%8C%E8%A6%81%E4%BF%AE%E6%94%B9Comparable%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%AE%9E%E7%8E%B0%E7%B1%BB%EF%BC%8C%E8%80%8C%E5%AE%9E%E7%8E%B0Comparator%E7%9A%84%E7%B1%BB%E6%98%AF%E5%9C%A8%E5%A4%96%E9%83%A8%E8%BF%9B%E8%A1%8C%E6%AF%94%E8%BE%83%E7%9A%84%EF%BC%8C%E4%B8%8D%E9%9C%80%E8%A6%81%E5%AF%B9%E5%AE%9E%E7%8E%B0%E7%B1%BB%E6%9C%89%E4%BB%BB%E4%BD%95%E4%BF%AE-%E6%94%B9%E3%80%82%E4%BB%8E%E8%BF%99%E4%B8%AA%E8%A7%92%E5%BA%A6%E8%AF%B4%EF%BC%8C%E5%85%B6%E5%AE%9E%E6%9C%89%E4%BA%9B%E4%B8%8D%E5%A4%AA%E5%A5%BD%EF%BC%8C%E5%B0%A4%E5%85%B6%E5%9C%A8%E6%88%91%E4%BB%AC%E5%B0%86%E5%AE%9E%E7%8E%B0%E7%B1%BB%E7%9A%84-class%E6%96%87%E4%BB%B6%E6%89%93%E6%88%90%E4%B8%80%E4%B8%AA-jar%E6%96%87%E4%BB%B6%E6%8F%90%E4%BE%9B%E7%BB%99%E5%BC%80%E5%8F%91%E8%80%85%E4%BD%BF%E7%94%A8%E7%9A%84%E6%97%B6%E5%80%99%E3%80%82%E5%AE%9E%E9%99%85%E4%B8%8A%E5%AE%9E%E7%8E%B0Comparator-%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%96%B9%E5%BC%8F%E5%90%8E%E9%9D%A2%E4%BC%9A%E5%86%99%E5%88%B0%E5%B0%B1%E6%98%AF%E4%B8%80%E7%A7%8D%E5%85%B8%E5%9E%8B%E7%9A%84%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E3%80%82"><span class="toc-number">2.3.2.</span> <span class="toc-text">2、实现Comparable接口的方式比实现Comparator接口的耦合性 要强一些，如果要修改比较算法，要修改Comparable接口的实现类，而实现Comparator的类是在外部进行比较的，不需要对实现类有任何修 改。从这个角度说，其实有些不太好，尤其在我们将实现类的.class文件打成一个.jar文件提供给开发者使用的时候。实际上实现Comparator 接口的方式后面会写到就是一种典型的策略模式。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Boolean%E5%80%BC%EF%BC%8C%E8%BF%94%E5%9B%9E%E7%BB%99%E5%89%8D%E7%AB%AF%E5%AD%97%E6%AE%B5%E6%97%B6%EF%BC%8C%E5%89%8D%E7%BC%80%E4%B8%8D%E8%83%BD%E5%B8%A6is%EF%BC%8C%E5%9B%A0%E4%B8%BA%E5%BA%8F%E5%88%97%E5%8C%96%E4%BC%A0%E8%BE%93%E7%9A%84%E6%97%B6%E5%80%99is%E4%BC%9A%E8%A2%AB%E5%8E%BB%E9%99%A4%E6%8E%89%E3%80%82"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.Boolean值，返回给前端字段时，前缀不能带is，因为序列化传输的时候is会被去除掉。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java8"><span class="toc-number">3.</span> <span class="toc-text">Java8</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Java-Lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">3.1.</span> <span class="toc-text">1.Java Lambda 表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AE%9E%E4%BE%8B"><span class="toc-number">3.2.</span> <span class="toc-text">Lambda 表达式实例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%9ALambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B"><span class="toc-number">4.</span> <span class="toc-text">多线程：Lambda 表达式创建线程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#stream%E6%B5%81%E4%B8%AD%E9%97%B4%E6%93%8D%E4%BD%9C%EF%BC%8C%E8%BD%AC%E6%8D%A2%E6%B5%81%EF%BC%9AflatMap"><span class="toc-number">4.0.0.0.1.</span> <span class="toc-text">stream流中间操作，转换流：flatMap</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AOP"><span class="toc-number">5.</span> <span class="toc-text">AOP</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#JDK%E7%9A%84Proxy%E6%8A%80%E6%9C%AF"><span class="toc-number">5.0.0.0.1.</span> <span class="toc-text">JDK的Proxy技术</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CGLIB%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0"><span class="toc-number">5.0.0.0.2.</span> <span class="toc-text">CGLIB技术实现</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3%E5%88%9B%E5%BB%BA"><span class="toc-number">5.0.0.0.3.</span> <span class="toc-text">使用注解创建</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E5%AD%90%E7%B1%BB"><span class="toc-number">6.</span> <span class="toc-text">原子类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Servlet-post%E6%8E%A5%E6%94%B6form-data%E5%8F%82%E6%95%B0%E5%80%BCjava"><span class="toc-number">7.</span> <span class="toc-text">Servlet post接收form-data参数值java</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E6%97%B6%E9%97%B4%E6%93%8D%E4%BD%9C"><span class="toc-number">8.</span> <span class="toc-text">线程安全的时间操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%95%B0"><span class="toc-number">9.</span> <span class="toc-text">随机数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java-POI-%E7%AC%94%E8%AE%B0"><span class="toc-number">10.</span> <span class="toc-text">java - POI 笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6"><span class="toc-number">11.</span> <span class="toc-text">java写入文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java%E4%B8%AD%E7%9A%84%E5%8C%85%E8%A3%85%E7%B1%BB"><span class="toc-number">12.</span> <span class="toc-text">java中的包装类</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/start/2022/11/18/mac%E5%AE%89%E8%A3%85brew%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" title="mac安装brew包管理工具"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8baa24a3-f3f2-4f8f-a01f-519ade739f10/18aa971f-5128-43a4-8c99-39339020624a.png" onerror="this.onerror=null;this.src='/start/img/404.jpg'" alt="mac安装brew包管理工具"/></a><div class="content"><a class="title" href="/start/2022/11/18/mac%E5%AE%89%E8%A3%85brew%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" title="mac安装brew包管理工具">mac安装brew包管理工具</a><time datetime="2022-11-18T14:02:57.596Z" title="发表于 2022-11-18 22:02:57">2022-11-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/start/2022/11/18/mac%E5%AE%89%E8%A3%85SVN/" title="mac安装SVN"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8baa24a3-f3f2-4f8f-a01f-519ade739f10/18aa971f-5128-43a4-8c99-39339020624a.png" onerror="this.onerror=null;this.src='/start/img/404.jpg'" alt="mac安装SVN"/></a><div class="content"><a class="title" href="/start/2022/11/18/mac%E5%AE%89%E8%A3%85SVN/" title="mac安装SVN">mac安装SVN</a><time datetime="2022-11-18T14:00:56.495Z" title="发表于 2022-11-18 22:00:56">2022-11-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/start/2022/11/18/%E7%94%9F%E6%88%90%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%88POST%E8%AF%B7%E6%B1%82%EF%BC%89/" title="生成微信小程序二维码"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8baa24a3-f3f2-4f8f-a01f-519ade739f10/18aa971f-5128-43a4-8c99-39339020624a.png" onerror="this.onerror=null;this.src='/start/img/404.jpg'" alt="生成微信小程序二维码"/></a><div class="content"><a class="title" href="/start/2022/11/18/%E7%94%9F%E6%88%90%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%8C%E7%BB%B4%E7%A0%81%EF%BC%88POST%E8%AF%B7%E6%B1%82%EF%BC%89/" title="生成微信小程序二维码">生成微信小程序二维码</a><time datetime="2022-11-18T11:52:10.801Z" title="发表于 2022-11-18 19:52:10">2022-11-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/start/2022/11/16/%E8%A7%A3%E5%86%B3maven%20gexin%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/" title="解决maven gexin依赖问题"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8baa24a3-f3f2-4f8f-a01f-519ade739f10/18aa971f-5128-43a4-8c99-39339020624a.png" onerror="this.onerror=null;this.src='/start/img/404.jpg'" alt="解决maven gexin依赖问题"/></a><div class="content"><a class="title" href="/start/2022/11/16/%E8%A7%A3%E5%86%B3maven%20gexin%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/" title="解决maven gexin依赖问题">解决maven gexin依赖问题</a><time datetime="2022-11-16T15:36:02.158Z" title="发表于 2022-11-16 23:36:02">2022-11-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/start/2022/11/16/Mysql%20%E4%B9%8B%E6%A0%B9%E6%8D%AE%E7%BB%8F%E7%BA%AC%E5%BA%A6%E6%8C%89%E8%B7%9D%E7%A6%BB%E6%8E%92%E5%BA%8F/" title="Mysql之根据经纬度按距离排序"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8baa24a3-f3f2-4f8f-a01f-519ade739f10/18aa971f-5128-43a4-8c99-39339020624a.png" onerror="this.onerror=null;this.src='/start/img/404.jpg'" alt="Mysql之根据经纬度按距离排序"/></a><div class="content"><a class="title" href="/start/2022/11/16/Mysql%20%E4%B9%8B%E6%A0%B9%E6%8D%AE%E7%BB%8F%E7%BA%AC%E5%BA%A6%E6%8C%89%E8%B7%9D%E7%A6%BB%E6%8E%92%E5%BA%8F/" title="Mysql之根据经纬度按距离排序">Mysql之根据经纬度按距离排序</a><time datetime="2022-11-16T09:34:23.265Z" title="发表于 2022-11-16 17:34:23">2022-11-16</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8baa24a3-f3f2-4f8f-a01f-519ade739f10/18aa971f-5128-43a4-8c99-39339020624a.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By null</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">簡</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/start/js/utils.js"></script><script src="/start/js/main.js"></script><script src="/start/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
-POWERMODE.shake = true;
-POWERMODE.mobile = false;
-document.body.addEventListener('input', POWERMODE);
-</script><div class="fb-customerchat" id="fb-customer-chat" attribution="biz_inbox"></div><script>document.getElementById('fb-root') ? '' : document.body.insertAdjacentHTML('afterend', '<div id="fb-root"></div>')
-
-window.fbAsyncInit = function() {
-  FB.init({
-    xfbml: true,
-    version: 'v15.0'
-  });
-};
-
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/zh_CN/sdk/xfbml.customerchat.js';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-
-if (false) {
-  var chatBtnFn = () => {
-    var chatBtn = document.getElementById("chat_btn")
-    chatBtn.addEventListener("click", function(){
-      FB.CustomerChat.show();
-    });
-  }
-  chatBtnFn()
-} else {
-  if (false) {
-    function chatBtnHide () {
-      FB.CustomerChat.hide()
-    }
-    function chatBtnShow () {
-      FB.CustomerChat.show(false)
-    }
-  }
-}</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
-
-var pjax = new Pjax({
-  elements: 'a:not([target="_blank"])',
-  selectors: pjaxSelectors,
-  cacheBust: false,
-  analytics: false,
-  scrollRestoration: false
-})
-
-document.addEventListener('pjax:send', function () {
-
-  // removeEventListener scroll 
-  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
-  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
-
-  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+<h1 id="java中的包装类"><a href="#java中的包装类" class="headerlink" title="java中的包装类"></a>java中的包装类</h1>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
   
-  if (window.aplayers) {
-    for (let i = 0; i < window.aplayers.length; i++) {
-      if (!window.aplayers[i].options.fixed) {
-        window.aplayers[i].destroy()
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/start/categories/%E5%90%8E%E7%AB%AF/" class="category-chain-item">后端</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/start/tags/java/">#java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>java笔记（持续更新）</div>
+      <div>https://guoaccount.github.io/2022/11/15/java笔记（持续更新）/</div>
+    </div>
+    <div class="license-meta">
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年11月15日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/start/2022/11/15/echart/" title="echart">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">echart</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/start/js/events.js" ></script>
+<script  src="/start/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
       }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/start/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
     }
-  }
 
-  typeof typed === 'object' && typed.destroy()
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
 
-  //reset readmode
-  const $bodyClassList = document.body.classList
-  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
 
-  typeof disqusjs === 'object' && disqusjs.destroy()
-})
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
-document.addEventListener('pjax:complete', function () {
-  window.refreshFn()
+  <script>Fluid.plugins.codeWidget();</script>
 
-  document.querySelectorAll('script[data-pjax]').forEach(item => {
-    const newScript = document.createElement('script')
-    const content = item.text || item.textContent || item.innerHTML || ""
-    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
-    newScript.appendChild(document.createTextNode(content))
-    item.parentNode.replaceChild(newScript, item)
-  })
 
-  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
 
-  typeof chatBtnFn === 'function' && chatBtnFn()
-  typeof panguInit === 'function' && panguInit()
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
 
-  // google analytics
-  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
 
-  // baidu analytics
-  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
 
-  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
 
-  // prismjs
-  typeof Prism === 'object' && Prism.highlightAll()
-})
+  <script>Fluid.plugins.imageCaption();</script>
 
-document.addEventListener('pjax:error', (e) => {
-  if (e.request.status === 404) {
-    pjax.loadUrl('/404.html')
-  }
-})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+  <script  src="/start/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/start/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
