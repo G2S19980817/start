@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>vim常用命令(1)</title>
+    <link href="/start/2022/11/19/vim%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4(1)/"/>
+    <url>/start/2022/11/19/vim%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4(1)/</url>
+    
+    <content type="html"><![CDATA[<h1 id="1、文本全局替换"><a href="#1、文本全局替换" class="headerlink" title="1、文本全局替换"></a>1、文本全局替换</h1><p>执行:</p><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs VIm">%s/oldstr/newstr/g<br></code></pre></td></tr></table></figure><p> 说明：  </p><p> :%s - 表示搜索替换<br> oldstr - 被替换的字符串<br> newstr - 要替换的字符串<br> g - Global，表示全局替换（如果没有”/g”，则只替换每行的第一个</p><h1 id="2、一次复制多行"><a href="#2、一次复制多行" class="headerlink" title="2、一次复制多行"></a>2、一次复制多行</h1><p>执行”yyp”，会将光标所在的一行复制一遍并添加到下方；<br>执行”yynp”，会将光标所在的一行复制n遍并添加到下方，将n换成实际数字即可；<br>执行”nyyp”，会将从光标行开始的n行复制一遍添加到下方，将n换成实际数字即可。</p><h1 id="3、一次删除多行"><a href="#3、一次删除多行" class="headerlink" title="3、一次删除多行"></a>3、一次删除多行</h1><p> 执行”dd”，会将光标所在的一行删除；<br> 执行”ndd”，会将从光标行开始的n行删除，将n换成实际数字即可；</p><h1 id="4、快速移动到文件头和文件尾"><a href="#4、快速移动到文件头和文件尾" class="headerlink" title="4、快速移动到文件头和文件尾"></a>4、快速移动到文件头和文件尾</h1><p>  执行”gg”，会快速移动到文件头位置；<br>  执行”Shift+G”，会快速移动到文结尾位置。  </p><h1 id="5、快速移动到行首和行尾"><a href="#5、快速移动到行首和行尾" class="headerlink" title="5、快速移动到行首和行尾"></a>5、快速移动到行首和行尾</h1><p> 执行”$”，会快速移动到行位；<br> 执行”^”，会快速移动到行首</p><h1 id="6-文本位置跳转"><a href="#6-文本位置跳转" class="headerlink" title="6.文本位置跳转"></a>6.文本位置跳转</h1><p><code>G</code> 跳转到文章最后一行<br><code>gg</code>跳转到文章第一行<br><code>zz</code>当前光标位置展示在屏幕中央</p><h1 id="7-全选"><a href="#7-全选" class="headerlink" title="7.全选"></a>7.全选</h1><p>全选（高亮显示）：按esc后，然后ggvG或者ggVG</p><p>全部复制：按esc后，然后ggyG</p><p>全部删除：按esc后，然后dG</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>vim</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vim</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Java请求第三方接口获取数据</title>
     <link href="/start/2022/11/19/Java%E8%AF%B7%E6%B1%82%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%A5%E5%8F%A3%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/"/>
     <url>/start/2022/11/19/Java%E8%AF%B7%E6%B1%82%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%A5%E5%8F%A3%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/</url>
