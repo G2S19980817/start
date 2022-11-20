@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>“xxx” 已损坏,打不开.您应该将它移到废纸篓,提示解决</title>
+    <link href="/2022/11/20/%E2%80%9Cxxx%E2%80%9D%20%E5%B7%B2%E6%8D%9F%E5%9D%8F,%E6%89%93%E4%B8%8D%E5%BC%80.%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93,%E6%8F%90%E7%A4%BA%E8%A7%A3%E5%86%B3/"/>
+    <url>/2022/11/20/%E2%80%9Cxxx%E2%80%9D%20%E5%B7%B2%E6%8D%9F%E5%9D%8F,%E6%89%93%E4%B8%8D%E5%BC%80.%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93,%E6%8F%90%E7%A4%BA%E8%A7%A3%E5%86%B3/</url>
+    
+    <content type="html"><![CDATA[<p>打开终端输入命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Shell">sudo xattr -r -d com.apple.quarantine <br></code></pre></td></tr></table></figure><p>命令后面要加空格</p><p>然后把安装程序往终端里拖。<br>输入mac开机密码即可。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>常见问题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>mac</tag>
+      
+      <tag>问题</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>内网穿透部署</title>
     <link href="/2022/11/20/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E9%83%A8%E7%BD%B2/"/>
     <url>/2022/11/20/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E9%83%A8%E7%BD%B2/</url>
@@ -182,9 +209,9 @@
     
     <tags>
       
-      <tag>idea</tag>
-      
       <tag>问题</tag>
+      
+      <tag>idea</tag>
       
     </tags>
     
