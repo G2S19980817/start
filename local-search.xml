@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>obsidian-Dataview 插件</title>
+    <link href="/2022/11/21/obsidian-dataview%E6%8F%92%E4%BB%B6/"/>
+    <url>/2022/11/21/obsidian-dataview%E6%8F%92%E4%BB%B6/</url>
+    
+    <content type="html"><![CDATA[<p>推荐一款markdown编辑器-obsidian（黑曜石）。这是我用过功能最强大的md编辑器，支持安装海量插件，妥妥的生产力工具，可以用来记录和整理你的工作内容和学习笔记。</p><blockquote><p><strong>支持pc、移动端、平板多端同步</strong><br>  <strong>支持windows、mac、linux</strong></p></blockquote><p>这里不过多赘述，可以去b站或百度搜索相关视频。使用这个工具需要一定的学习成本</p><p>官网：<br><a href="https://obsidian.md/">Obsidian</a></p><h3 id="Dataview-插件"><a href="#Dataview-插件" class="headerlink" title="Dataview 插件"></a>Dataview 插件</h3><p>假设现在到了周五临近下班的时间，我们需要<strong>快速将 5 篇日报和 3 场会议记录整合成一篇周报</strong>，如果是以前使用传统文档记录，我们可能需要<strong>分别打开 8 个文件</strong>，来回切换窗口，然后慢慢地将它们复制粘贴在一起，这真是一件既费心又烦人的事。</p><p><img src="https://cdn.sspai.com/2022/03/30/article/b1446a2e0ddce5fe7eb0eb5c9a25a99c?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p><p>而同样的事情如果发生在 Obsidian 中，事情则会变得轻松不少。</p><p>如下图所示，当我在周报文件夹创建文档，触发了 Templater 的模板，而这个模板则用了 Dataview 语法进行了配置。我利用 Dataview 插件，自动汇总了过去一周的所有日报和会议记录：</p><p><img src="https://cdn.sspai.com/2022/03/30/713136122b0b089f4e37950512c7bea9.gif"></p><p>你可以 <code>Ctrl</code>  + 鼠标左键点击 ，来打开同一份文档。左侧窗口使用 <code>Ctrl+E</code> 进入阅读视图，鼠标悬停在日报标题上方，通过弹出的小窗获取周报所需要的信息，然后就可以在右侧编辑视图下快速输入了。</p><p><img src="https://cdn.sspai.com/2022/03/30/article/9e40ab0889f561bca740a5c82f0f48e1?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p><h4 id="Dataview-配置方法"><a href="#Dataview-配置方法" class="headerlink" title="Dataview 配置方法"></a>Dataview 配置方法</h4><p>将下面这段代码放到 Templater 模板库中，然后命名为 <code>周报模板</code></p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey">‍‍‍‍‍```dataview<br>list from <span class="hljs-string">&quot;工作&quot;</span><br>‍‍‍‍‍```<br></code></pre></td></tr></table></figure><p>然后再设置当 <code>在周报文件夹创建文档</code> ，则 <code>调用周报模板</code></p><p><img src="https://cdn.sspai.com/2022/03/30/article/fb14dae52dede984786e5edc6569b535?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p><p>但是你会发现，上面那段代码会汇总 <code>工作</code> 文件夹中的<strong>所有文件</strong>，因为我们还没添加过滤条件</p><p><img src="https://cdn.sspai.com/2022/03/30/article/dc4d537407d95838d4e47c7ee7a0205c?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p><p>显然我们需要的只有那些创建时间在一周之内的日报和会议记录文档，所以我们还需要两个步骤</p><ol><li> 为需要的文档打标签，分别是 <code>创建时间</code>、<code>日报</code>、以及 <code>会议记录</code></li><li> 让 Dataview 筛选过滤这些标签</li></ol><h4 id="用-YAML-语言为文档打标签"><a href="#用-YAML-语言为文档打标签" class="headerlink" title="用 YAML 语言为文档打标签"></a>用 YAML 语言为文档打标签</h4><p>你可以在日报最开头手动输入下面的内容，<strong>注意是英文输入法下的冒号，并且冒号后面需要空格</strong>：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-string">创建时间:</span> <span class="hljs-number">2022-03-22</span> <br><span class="hljs-string">标签:</span> <span class="hljs-string">日报</span><br><span class="hljs-meta">---</span><br></code></pre></td></tr></table></figure><p>也可以用 Templater 插件在创建日报文档时自动插入：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-string">创建时间:</span> &lt;%<span class="language-ruby"> tp.file.creation_date () </span>%&gt;<br><span class="hljs-string">标签:</span> <span class="hljs-string">日报</span><br><span class="hljs-meta">---</span><br></code></pre></td></tr></table></figure><p>好了现在我们可以让 Dataview 插件正确过滤<strong>创建时间在 7 日之内</strong>，并且<strong>包含日报标签</strong>的文档了。</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql">‍‍‍‍‍‍```dataview<br>list <span class="hljs-keyword">from</span> &quot;Work&quot;<br><span class="hljs-keyword">where</span> 创建时间 <span class="hljs-operator">&gt;=</span> <span class="hljs-type">date</span>(today) <span class="hljs-operator">-</span> dur(<span class="hljs-number">7</span> days)<br><span class="hljs-keyword">where</span> <span class="hljs-keyword">contains</span>(标签,&quot;日报&quot;)<br>sort 创建时间 <span class="hljs-keyword">desc</span><br>‍‍‍‍‍‍```<br></code></pre></td></tr></table></figure><p><img src="https://cdn.sspai.com/2022/03/30/article/676b941239e27bb7982ceda162ca675f?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p><p>后面，我还会反复提到这个插件，你可以自行阅读 <a href="https://blacksmithgu.github.io/obsidian-dataview/">Dataview 插件开发者文档</a>，学习更多高端操作，也可以点击下面大图，参考 Dataview 的部分语法。</p><p><img src="https://cdn.sspai.com/2022/04/01/31d1b8c94d35dcc45313378d721429bf.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>推荐</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>obsidian</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>“xxx” 已损坏,打不开.您应该将它移到废纸篓,提示解决</title>
     <link href="/2022/11/20/%E2%80%9Cxxx%E2%80%9D%20%E5%B7%B2%E6%8D%9F%E5%9D%8F,%E6%89%93%E4%B8%8D%E5%BC%80.%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93,%E6%8F%90%E7%A4%BA%E8%A7%A3%E5%86%B3/"/>
     <url>/2022/11/20/%E2%80%9Cxxx%E2%80%9D%20%E5%B7%B2%E6%8D%9F%E5%9D%8F,%E6%89%93%E4%B8%8D%E5%BC%80.%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93,%E6%8F%90%E7%A4%BA%E8%A7%A3%E5%86%B3/</url>
