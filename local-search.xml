@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>关闭IPS</title>
+    <link href="/2022/11/22/%E5%85%B3%E9%97%ADIPS/"/>
+    <url>/2022/11/22/%E5%85%B3%E9%97%ADIPS/</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://images.unsplash.com/photo-1482189349482-3defd547e0e9?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNjM5Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjkxMjA3MTQ&ixlib=rb-4.0.3&q=80&w=1080&h=1920" alt="photo by Jessica Furtney on Unsplash"></p><p>关闭SIP<br>系统完整性保护是 OS X El Capitan 及更高版本所采用的一项安全技术，能够帮助防止潜在恶意软件修改 Mac 上受保护的文件和文件夹。系统完整性保护可以限制 root 用户帐户，以及 root 用户能够在 Mac 操作系统的受保护部分完成的操作。</p><p>通俗来说就是Windows系统的防火墙或者安卓手机的ROOT。</p><p>苹果应用商店的软件都是用沙盒运行的，无法访问系统文件，所以大部分软件都是阉割版的，例如<a href="https://foxirj.com/tencent-lemon">腾讯柠檬清理</a>之类的系统应用。</p><h2 id="关闭SIP影响"><a href="#关闭SIP影响" class="headerlink" title="关闭SIP影响"></a>关闭SIP影响</h2><ul><li>  xxx已损坏，无法打开，你应该将它移到废纸篓解决办法</li><li>  打不开 xxx，因为它来自身份不明的开发者</li><li>  打不开xxxx，因为 Apple 无法检查其是否包含恶意软件</li></ul><p><strong>目前最新的10.15.x系统使用破解软件基本上都需要关闭SIP才可以打开，就算是正版软件也有大量需要关闭SIP的，是需要永久关闭！例如TripMode。</strong></p><p>首先来检查系统是否已经禁用<a href="https://foxirj.com/tag/sip-system-integrity-protection-function" title="【查看含有[SIP系统完整性保护功能]标签的文章】">SIP系统完整性保护功能</a>。</p><p>打开终端输入以下代码即可。<strong>（全部复制以下代码）</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">csrutil status<br></code></pre></td></tr></table></figure><p>未关闭 enabled：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">System Integrity Protection status: enabled<br></code></pre></td></tr></table></figure><p>已关闭 disabled：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">System Integrity Protection status: disabled<br></code></pre></td></tr></table></figure><p>以下是具体关闭SIP系统完整性保护功能教程：<strong>进入Recovery模式后只能使用触控板，鼠标无效。</strong></p><h2 id="Apple-ARM64处理器关闭方法："><a href="#Apple-ARM64处理器关闭方法：" class="headerlink" title="Apple ARM64处理器关闭方法："></a>Apple ARM64处理器关闭方法：</h2><p>1、关机长按【开机键】直至出现磁盘画面，点击【选项】&gt;【继续】</p><p>2、在顶部选择【实用工具】&gt;【终端】打开即可。</p><p>3、输入以下代码并回车，然后输入【y】再输入【开机密码】并回车</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">csrutil <span class="hljs-built_in">disable</span><br></code></pre></td></tr></table></figure><p>4、显示以下代码即是成功关闭SIP了</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">System Integrity Protection is off<br></code></pre></td></tr></table></figure><p>5、再输入以下代码重启电脑即可完成关闭</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">reboot<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>常见问题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>mac</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>obsidian-Dataview 插件</title>
     <link href="/2022/11/21/obsidian-dataview%E6%8F%92%E4%BB%B6/"/>
     <url>/2022/11/21/obsidian-dataview%E6%8F%92%E4%BB%B6/</url>
