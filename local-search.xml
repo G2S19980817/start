@@ -4,31 +4,6 @@
   
   
   <entry>
-    <title>obsidian插件-Templater(命令)</title>
-    <link href="/2022/11/23/obsidian%E6%8F%92%E4%BB%B6-Templater(%E5%91%BD%E4%BB%A4)/"/>
-    <url>/2022/11/23/obsidian%E6%8F%92%E4%BB%B6-Templater(%E5%91%BD%E4%BB%A4)/</url>
-    
-    <content type="html"><![CDATA[<h1 id="1-动态命令"><a href="#1-动态命令" class="headerlink" title="1. 动态命令"></a>1. 动态命令</h1><p>使用此命令实用程序，您可以将命令声明为“动态”，这意味着在进入预览模式时将解析此命令。</p><p>要声明动态命令，请在命令开始标记后添加加号：<code>+``&lt;%+</code></p><p>就是这样，您的命令现在将仅在预览模式下执行。</p><p>这对于内部函数很有用，例如：<code>tp.file.last_modified_date</code></p><p><code>Last modified date: &lt;%+ tp.file.last_modified_date() %&gt;</code></p><h3 id="刷新问题"><a href="#刷新问题" class="headerlink" title="刷新问题"></a>刷新问题</h3><p>预览模式的一个“缺点”是它将渲染的笔记放在缓存中，以加快速度。</p><p>这意味着您的动态命令只会在您打开备忘录时呈现一次，但之后不会刷新。</p><p>如果要刷新它，则必须关闭注释以清除缓存并再次打开它。</p><h1 id="2-执行命令"><a href="#2-执行命令" class="headerlink" title="2.执行命令"></a>2.执行命令</h1><p>这种类型的命令允许我们执行JavaScript代码。</p><p>使用 JavaScript 执行命令，我们几乎可以做 JavaScript 允许我们做的所有事情。下面给出了一些例子。</p><p>我们仍然可以从这种类型的命令访问对象和所有内部变量/函数。<code>tp</code></p><p>JavaScript 执行命令允许您访问全局命名空间变量。这意味着您可以访问类似的东西。<code>app``moment</code></p><h3 id="异步函数"><a href="#异步函数" class="headerlink" title="异步函数"></a>异步函数</h3><p>某些内部函数是异步的。在 JavaScript 执行命令中调用此类函数时，如有必要，不要忘记使用 the关键字。<code>await</code></p><h3 id="如何从-JavaScript-执行命令输出值"><a href="#如何从-JavaScript-执行命令输出值" class="headerlink" title="如何从 JavaScript 执行命令输出值?"></a>如何从 JavaScript 执行命令输出值?</h3><p>有时，您可能希望在使用 JS 执行命令时输出一些内容。</p><p>当我们的模板引擎使用我们所有的命令结果生成替换字符串时，它会存储在一个名为的变量中。这是将包含已处理文件内容的字符串。您可以从 JS 执行命令访问该变量。<code>tR</code></p><p>这意味着，要从JS执行命令输出某些内容，您只需要将要输出的内容附加到该字符串变量中。<code>tR</code></p><p>例如，以下命令：将输出。`&lt;%* tR += “test” %&gt;test</p><h3 id="建议器和提示"><a href="#建议器和提示" class="headerlink" title="建议器和提示"></a>建议器和提示</h3><p>重要的是要注意，和两者都需要语句才能将值保存到变量中<code>tp.system.prompt()tp.system.suggester()await</code></p><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>以下是您可以使用 JavaScript 执行命令执行的一些操作示例：</p><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mel">&lt;%* <span class="hljs-keyword">if</span> (tp.<span class="hljs-keyword">file</span>.title.<span class="hljs-keyword">startsWith</span>(<span class="hljs-string">&quot;Hello&quot;</span>)) &#123; %&gt; This is a hello <span class="hljs-keyword">file</span> ! &lt;%* &#125; <span class="hljs-keyword">else</span> &#123; %&gt; This is a normal <span class="hljs-keyword">file</span> ! &lt;%* &#125; %&gt; &lt;%* <span class="hljs-keyword">if</span> (tp.frontmatter.type === <span class="hljs-string">&quot;seedling&quot;</span>) &#123; %&gt; This is a seedling <span class="hljs-keyword">file</span> ! &lt;%* &#125; <span class="hljs-keyword">else</span> &#123; %&gt; This is a normal <span class="hljs-keyword">file</span> ! &lt;%* &#125; %&gt; &lt;%* <span class="hljs-keyword">if</span> (tp.<span class="hljs-keyword">file</span>.tags.contains(<span class="hljs-string">&quot;#todo&quot;</span>)) &#123; %&gt; This is a todo <span class="hljs-keyword">file</span> ! &lt;%* &#125; <span class="hljs-keyword">else</span> &#123; %&gt; This is a finished <span class="hljs-keyword">file</span> ! &lt;%* &#125; %&gt; &lt;%* function <span class="hljs-keyword">log</span>(msg) &#123; console.<span class="hljs-keyword">log</span>(msg); &#125; %&gt; &lt;%* <span class="hljs-keyword">log</span>(<span class="hljs-string">&quot;Title: &quot;</span> + tp.<span class="hljs-keyword">file</span>.title) %&gt; &lt;%* tR += tp.<span class="hljs-keyword">file</span>.content.replace(/stuff/, <span class="hljs-string">&quot;things&quot;</span>); %&gt;<br></code></pre></td></tr></table></figure><p><img src="https://cdn.staticaly.com/gh/GuoAccount/obsidianImage/main/img/20221123165003.png"></p><h1 id="3-空白控件"><a href="#3-空白控件" class="headerlink" title="3.空白控件"></a>3.空白控件</h1><p>默认情况下，模板程序中<strong>的命令</strong>不会删除任何换行符。命令被替换为它们的值，仅此而已。</p><p>有时，在插入命令后进行一些空格控制会很有用，这正是此命令实用程序提供的。</p><p>让我们举个例子。以下模板：</p><p><code>&lt;%* if (tp.file.title == &quot;MyFile&quot; ) &#123; %&gt; This is my file! &lt;%* &#125; else &#123; %&gt; This isn&#39;t my file! &lt;%* &#125; %&gt; Some content ...</code></p><p>如果条件为 false，将生成以下输出（当条件为 true 时也会发生同样的情况），请注意空行：</p><p><code>This isn&#39;t my file!  Some content ...</code></p><p>您可能希望删除<strong>执行命令</strong>生成的不产生任何输出的空行。</p><p>存在用于空格控制的特定语法：<br><img src="https://cdn.staticaly.com/gh/GuoAccount/obsidianImage/main/img/20221123165755.png"></p><p>在我们的示例中，为了修复我们的模板以删除空行，我们将使用以下模板（注意标签末尾的破折号），以删除执行命令<strong>后的</strong>空白换行符：<code>-</code></p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs text">&lt;%* if (tp.file.title == &quot;MyFile&quot; ) &#123; -%&gt;<br>This is my file!<br>&lt;%* &#125; else &#123; -%&gt;<br>This isn&#x27;t my file!<br>&lt;%* &#125; -%&gt;<br>Some content ...<br></code></pre></td></tr></table></figure><p>这将产生以下输出：</p><p><code>This isn&#39;t my file! Some content ...</code></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>分享</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>obsidian</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>java实现http请求之CloseableHttpClient</title>
     <link href="/2022/11/23/java%E5%AE%9E%E7%8E%B0http%E8%AF%B7%E6%B1%82%E4%B9%8BCloseableHttpClient/"/>
     <url>/2022/11/23/java%E5%AE%9E%E7%8E%B0http%E8%AF%B7%E6%B1%82%E4%B9%8BCloseableHttpClient/</url>
@@ -309,9 +284,9 @@
     
     <tags>
       
-      <tag>idea</tag>
-      
       <tag>问题</tag>
+      
+      <tag>idea</tag>
       
     </tags>
     
