@@ -16,23 +16,23 @@
   <meta name="author" content="">
   <meta name="keywords" content="">
   
-    <meta name="description" content="一、方式一123st_distance 计算的结果单位是度，需要乘111195（地球半径6371000*PI&#x2F;180）是将值转化为米。SELECT *,(st_distance(point(lng,lat),point(116.3424590000,40.0497810000))*111195&#x2F;1000 ) as juli FROM table ORDER BY juli ASC   二、方式二1">
+    <meta name="description" content="依赖：123456789101112131415161718192021&lt;dependency&gt;    &lt;groupId&gt;org.apache.httpcomponents&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;httpclient&lt;&#x2F;artifactId&gt;    &lt;version&gt;4.5.2&lt;&#x2F;versio">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mysql之根据经纬度按距离排序">
-<meta property="og:url" content="https://guoaccount.github.io/2022/11/16/Mysql%20%E4%B9%8B%E6%A0%B9%E6%8D%AE%E7%BB%8F%E7%BA%AC%E5%BA%A6%E6%8C%89%E8%B7%9D%E7%A6%BB%E6%8E%92%E5%BA%8F/index.html">
+<meta property="og:title" content="java实现http请求之CloseableHttpClient">
+<meta property="og:url" content="https://guoaccount.github.io/2022/11/23/java%E5%AE%9E%E7%8E%B0http%E8%AF%B7%E6%B1%82%E4%B9%8BCloseableHttpClient/index.html">
 <meta property="og:site_name" content="郭顺顺的博客">
-<meta property="og:description" content="一、方式一123st_distance 计算的结果单位是度，需要乘111195（地球半径6371000*PI&#x2F;180）是将值转化为米。SELECT *,(st_distance(point(lng,lat),point(116.3424590000,40.0497810000))*111195&#x2F;1000 ) as juli FROM table ORDER BY juli ASC   二、方式二1">
+<meta property="og:description" content="依赖：123456789101112131415161718192021&lt;dependency&gt;    &lt;groupId&gt;org.apache.httpcomponents&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;httpclient&lt;&#x2F;artifactId&gt;    &lt;version&gt;4.5.2&lt;&#x2F;versio">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-11-16T09:34:23.265Z">
-<meta property="article:modified_time" content="2022-11-16T09:35:53.132Z">
-<meta property="article:tag" content="数据库">
+<meta property="article:published_time" content="2022-11-23T03:50:09.384Z">
+<meta property="article:modified_time" content="2022-11-23T03:52:12.126Z">
+<meta property="article:tag" content="后端">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Mysql之根据经纬度按距离排序 - 郭顺顺的博客</title>
+  <title>java实现http请求之CloseableHttpClient - 郭顺顺的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -212,7 +212,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Mysql之根据经纬度按距离排序"></span>
+            <span id="subtitle" data-typed-text="java实现http请求之CloseableHttpClient"></span>
           
         </div>
 
@@ -223,8 +223,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-16 17:34" pubdate>
-          2022年11月16日 下午
+        <time datetime="2022-11-23 11:50" pubdate>
+          2022年11月23日 中午
         </time>
       </span>
     
@@ -235,7 +235,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          833 字
+          2.5k 字
         
       </span>
     
@@ -246,7 +246,7 @@
         
         
         
-          7 分钟
+          21 分钟
         
       </span>
     
@@ -292,12 +292,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Mysql之根据经纬度按距离排序</h1>
+            <h1 style="display: none">java实现http请求之CloseableHttpClient</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：7 天前
+                    本文最后更新于：2 分钟前
                   
                 
               </p>
@@ -305,28 +305,11 @@
             
               <div class="markdown-body">
                 
-                <h2 id="一、方式一"><a href="#一、方式一" class="headerlink" title="一、方式一"></a>一、方式一</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">st_distance 计算的结果单位是度，需要乘111195（地球半径6371000*PI/180）是将值转化为米。<br>SELECT *,<br>(st_distance(point(lng,lat),point(116.3424590000,40.0497810000))*111195/1000 ) as juli FROM table ORDER BY juli ASC <br></code></pre></td></tr></table></figure>
+                <h3 id="依赖："><a href="#依赖：" class="headerlink" title="依赖："></a>依赖：</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.httpcomponents<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>httpclient<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.5.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br><span class="hljs-comment">&lt;!--fastjson--&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alibaba<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>fastjson<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.2.32<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="二、方式二"><a href="#二、方式二" class="headerlink" title="二、方式二"></a>二、方式二</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select *, ROUND(6378.138*2*ASIN(SQRT(POW(SIN((&#123;$lat&#125;*PI()/180-lat*PI()/180)/2),2)+COS(&#123;$lat&#125;*PI()/180)*COS(lat*PI()/180)*POW(SIN((&#123;$lng&#125;*PI()/180-lng*PI()/180)/2),2)))*1000) AS juli from table order by juli asc<br></code></pre></td></tr></table></figure>
+<h3 id="请求实例："><a href="#请求实例：" class="headerlink" title="请求实例："></a>请求实例：</h3><h4 id="get请求："><a href="#get请求：" class="headerlink" title="get请求："></a>get请求：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">doGet</span><span class="hljs-params">(String url, String token)</span> &#123;<br><br>        <span class="hljs-comment">//创建HttpClient对象</span><br><br>        <span class="hljs-type">CloseableHttpClient</span> <span class="hljs-variable">httpClient</span> <span class="hljs-operator">=</span> HttpClientBuilder.create().build();<br><br>        <span class="hljs-type">HttpGet</span> <span class="hljs-variable">httpGet</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">HttpGet</span>(url);<br><br>        <span class="hljs-comment">//api_gateway_auth_token自定义header头，用于token验证使用</span><br><br>        httpGet.addHeader(<span class="hljs-string">&quot;api_gateway_auth_token&quot;</span>,tokenString);<br><br>        httpGet.addHeader(<span class="hljs-string">&quot;User-Agent&quot;</span>, <span class="hljs-string">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36&quot;</span>);<br><br>        <span class="hljs-keyword">try</span> &#123;<br><br>            <span class="hljs-type">HttpResponse</span> <span class="hljs-variable">response</span> <span class="hljs-operator">=</span> httpClient.execute(httpGet);<br><br>            <span class="hljs-keyword">if</span> (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) &#123;<br><br>                <span class="hljs-comment">//返回json格式</span><br><br>                <span class="hljs-type">String</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> EntityUtils.toString(response.getEntity());<br><br>                <span class="hljs-keyword">return</span> res;<br><br>            &#125;<br><br>        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br><br>            e.printStackTrace();<br><br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br><br>    &#125;<br></code></pre></td></tr></table></figure>
 
-<p>原理：</p>
-<ul>
-<li>MYSQL空间函数<br>  返回球体上两个点和/或多点之间的最小球面距离（以米为单位）</li>
-</ul>
-<h3 id="函数st-distance-sphere-和-st-distance"><a href="#函数st-distance-sphere-和-st-distance" class="headerlink" title="函数st_distance_sphere 和 st_distance"></a>函数st_distance_sphere 和 st_distance</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">SELECT</span> st_distance_sphere(POINT(<span class="hljs-number">121.590346</span>, <span class="hljs-number">31.388096</span>),POINT(<span class="hljs-number">121.590345</span>, <span class="hljs-number">31.388095</span>)) <span class="hljs-keyword">AS</span> distant<br></code></pre></td></tr></table></figure>
-
-<p>结果（单位：米）<br>0.14620023407776306</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-keyword">SELECT</span> st_distance(POINT(<span class="hljs-number">121.590346</span>, <span class="hljs-number">31.388096</span>),POINT(<span class="hljs-number">121.590345</span>, <span class="hljs-number">31.388095</span>))<span class="hljs-operator">*</span><span class="hljs-number">111195</span> <span class="hljs-keyword">AS</span> distant<br></code></pre></td></tr></table></figure>
-
-<p>结果：<br>0.15725347695038774</p>
-<blockquote>
-<p>st_distance 计算的结果单位是度，需要乘111195（地球半径6371000*PI/180）是将值转化为米。</p>
-</blockquote>
-<p>为什么不一样呢？</p>
-<blockquote>
-<p>因为在不同纬度，每度的长度是不一样的。所以 st_distance_sphere 的结果是准确的。</p>
-</blockquote>
-
+<h4 id="post请求："><a href="#post请求：" class="headerlink" title="post请求："></a>post请求：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">    * 以post方式调用第三方接口</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">    * <span class="hljs-doctag">@param</span> url</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">    * <span class="hljs-doctag">@param</span> json</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">    * <span class="hljs-doctag">@return</span></span><br><span class="hljs-comment"></span><br><span class="hljs-comment">    */</span><br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">doPost</span><span class="hljs-params">(String url, JSONObject json)</span> &#123;<br><br>        <span class="hljs-keyword">if</span> (<span class="hljs-literal">null</span> == httpClient) &#123;<br><br>            httpClient = HttpClientBuilder.create().build();<br><br>        &#125;<br><br>        <span class="hljs-type">HttpPost</span> <span class="hljs-variable">httpPost</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">HttpPost</span>(url);<br><br>        <span class="hljs-comment">//api_gateway_auth_token自定义header头，用于token验证使用</span><br><br>        httpPost.addHeader(<span class="hljs-string">&quot;api_gateway_auth_token&quot;</span>, tokenString);<br><br>        httpPost.addHeader(<span class="hljs-string">&quot;User-Agent&quot;</span>, <span class="hljs-string">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36&quot;</span>);<br><br>        <span class="hljs-keyword">try</span> &#123;<br><br>            <span class="hljs-type">StringEntity</span> <span class="hljs-variable">se</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringEntity</span>(json.toString());<br><br>            se.setContentEncoding(<span class="hljs-string">&quot;UTF-8&quot;</span>);<br><br>            <span class="hljs-comment">//发送json数据需要设置contentType</span><br><br>            se.setContentType(<span class="hljs-string">&quot;application/x-www-form-urlencoded&quot;</span>);<br><br>            <span class="hljs-comment">//设置请求参数</span><br><br>            httpPost.setEntity(se);<br><br>            <span class="hljs-type">HttpResponse</span> <span class="hljs-variable">response</span> <span class="hljs-operator">=</span> httpClient.execute(httpPost);<br><br>            <span class="hljs-keyword">if</span> (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) &#123;<br><br>                <span class="hljs-comment">//返回json格式</span><br><br>                <span class="hljs-type">String</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> EntityUtils.toString(response.getEntity());<br><br>                <span class="hljs-keyword">return</span> res;<br><br>            &#125;<br><br>        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br><br>            e.printStackTrace();<br><br>        &#125; <span class="hljs-keyword">finally</span> &#123;<br><br>            <span class="hljs-keyword">if</span> (httpClient != <span class="hljs-literal">null</span>)&#123;<br><br>                <span class="hljs-keyword">try</span> &#123;<br><br>                    httpClient.close();<br><br>                &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br><br>                    e.printStackTrace();<br><br>                &#125;<br><br>            &#125;<br><br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br><br>    &#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -344,7 +327,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/mysql/" class="category-chain-item">mysql</a>
+  <a href="/categories/%E5%90%8E%E7%AB%AF/" class="category-chain-item">后端</a>
   
   
 
@@ -359,7 +342,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">#数据库</a>
+        <a href="/tags/%E5%90%8E%E7%AB%AF/">#后端</a>
       
     </div>
   
@@ -371,21 +354,21 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Mysql之根据经纬度按距离排序</div>
-      <div>https://guoaccount.github.io/2022/11/16/Mysql 之根据经纬度按距离排序/</div>
+      <div>java实现http请求之CloseableHttpClient</div>
+      <div>https://guoaccount.github.io/2022/11/23/java实现http请求之CloseableHttpClient/</div>
     </div>
     <div class="license-meta">
       
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年11月16日</div>
+          <div>2022年11月23日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年11月16日</div>
+          <div>2022年11月23日</div>
         </div>
       
       
@@ -416,18 +399,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/11/16/%E8%A7%A3%E5%86%B3maven%20gexin%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/" title="解决maven gexin依赖问题">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">解决maven gexin依赖问题</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/11/15/echart/" title="echart">
-                        <span class="hidden-mobile">echart</span>
+                      <a href="/2022/11/22/%E5%85%B3%E9%97%ADIPS/" title="关闭IPS">
+                        <span class="hidden-mobile">关闭IPS</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
