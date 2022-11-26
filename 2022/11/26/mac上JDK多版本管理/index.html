@@ -23,11 +23,15 @@
 <meta property="og:site_name" content="郭顺顺的博客">
 <meta property="og:description" content="The only real failure in life is not to be true to the best one knows.— Buddha  我的Mac上已经有一个 oracle JDK8的版本了，但因为我是m1pro芯片，所以x86架构的jdk效率运行起来会打折扣，于是我打算下载支持arm架构的openjdk1.8使用，arm版的jdk在效率上是高于现在使用的jdk的。 安">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://images.unsplash.com/photo-1654854759158-2756e1aa3b99?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNjM5Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2Njk0MzU5OTE&ixlib=rb-4.0.3&q=80&w=3840%C3%971600">
+<meta property="og:image" content="https://images.unsplash.com/photo-1654854759158-2756e1aa3b99?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNjM5Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2Njk0MzU5OTE&ixlib=rb-4.0.3&q=80&w=3840×1600">
 <meta property="article:published_time" content="2022-11-26T04:13:08.013Z">
-<meta property="article:modified_time" content="2022-11-26T04:24:13.674Z">
+<meta property="article:modified_time" content="2022-11-26T04:27:29.811Z">
+<meta property="article:tag" content="mac">
+<meta property="article:tag" content="jdk">
+<meta property="article:tag" content="openJdk">
+<meta property="article:tag" content="jEnv">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://images.unsplash.com/photo-1654854759158-2756e1aa3b99?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNjM5Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2Njk0MzU5OTE&ixlib=rb-4.0.3&q=80&w=3840%C3%971600">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1654854759158-2756e1aa3b99?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNjM5Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2Njk0MzU5OTE&ixlib=rb-4.0.3&q=80&w=3840×1600">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -236,7 +240,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.5k 字
+          3.8k 字
         
       </span>
     
@@ -247,7 +251,7 @@
         
         
         
-          30 分钟
+          32 分钟
         
       </span>
     
@@ -298,7 +302,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：1 分钟前
+                    本文最后更新于：几秒前
                   
                 
               </p>
@@ -315,7 +319,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ brew tap AdoptOpenJDK/openjdk<br>$ brew install --cask &lt;version&gt;<br> <br><span class="hljs-comment">##java8</span><br>$ brew install --cask adoptopenjdk8<br></code></pre></td></tr></table></figure>
 
 <p>这里显示的是JDK13，正好是我想要安装的JDK版本，如果不是你想要的版本可以自己搜索相应的 Homebrew Tap。接下来直接安装:</p>
-<p>![[Pasted image 20221126122154.png]]</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">zhangchenghong@zhangchenghongdeMacBook-Pro ~ % java -version<br>openjdk version <span class="hljs-string">&quot;1.8.0_352&quot;</span><br>OpenJDK Runtime Environment (Zulu 8.66.0.15-CA-macos-aarch64) (build 1.8.0_352-b08)<br>OpenJDK 64-Bit Server VM (Zulu 8.66.0.15-CA-macos-aarch64) (build 25.352-b08, mixed mode)<br></code></pre></td></tr></table></figure>
+
 <p>但是另一个问题来了，我电脑上原来安装的JDK8去哪呢？我如何在不同的版本中随意切换呢？比如像Node的<code>nvm</code>，Ruby的<code>rvm</code>，Python的<code>pyenv</code>等。答案是我们可以通过<code>jenv</code>来实现相同的效果。</p>
 <h2 id="安装-jEnv，管理多版本jdk"><a href="#安装-jEnv，管理多版本jdk" class="headerlink" title="安装 jEnv，管理多版本jdk"></a>安装 jEnv，管理多版本jdk</h2><ol>
 <li> 安装 jEnv</li>
@@ -382,6 +387,40 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%BC%80%E5%8F%91%E9%83%A8%E7%BD%B2/" class="category-chain-item">开发部署</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/mac/">#mac</a>
+      
+        <a href="/tags/jdk/">#jdk</a>
+      
+        <a href="/tags/openJdk/">#openJdk</a>
+      
+        <a href="/tags/jEnv/">#jEnv</a>
+      
+    </div>
   
 </div>
 
