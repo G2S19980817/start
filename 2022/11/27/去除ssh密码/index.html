@@ -16,22 +16,25 @@
   <meta name="author" content="">
   <meta name="keywords" content="">
   
-    <meta name="description" content="linuxtitle: mac安装brew包管理工具categories: 开发部署tags:  mac brew   brew 是 Mac 下的一个包管理工具，类似于 centos 下的 yum，ubuntu中的apt。可以很方便地进行安装&#x2F;卸载&#x2F;更新各种软件包。例如：nodejs,svn,tomcat,mysql, mongodb 等等，可以用来快速搭建各种本地环境，程序员必备工具 安装 br">
+    <meta name="description" content="1、在终端下输入ssh-keygen -p12ssh-keygen -pEnter file in which the key is (&#x2F;Users&#x2F;username&#x2F;.ssh&#x2F;id_rsa):  2、系统会提示选择需要修改的私钥可以直接回车，默认是&#x2F;Users&#x2F;username&#x2F;.ssh&#x2F;id_rsa 3、选好文件后按回车，会提示你输入旧密码：1Enter old passphrase:  4">
 <meta property="og:type" content="article">
-<meta property="og:title" content="郭顺顺的博客">
-<meta property="og:url" content="https://guoaccount.github.io/2022/11/18/mac%E5%AE%89%E8%A3%85brew%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/index.html">
+<meta property="og:title" content="去除ssh密码">
+<meta property="og:url" content="https://guoaccount.github.io/2022/11/27/%E5%8E%BB%E9%99%A4ssh%E5%AF%86%E7%A0%81/index.html">
 <meta property="og:site_name" content="郭顺顺的博客">
-<meta property="og:description" content="linuxtitle: mac安装brew包管理工具categories: 开发部署tags:  mac brew   brew 是 Mac 下的一个包管理工具，类似于 centos 下的 yum，ubuntu中的apt。可以很方便地进行安装&#x2F;卸载&#x2F;更新各种软件包。例如：nodejs,svn,tomcat,mysql, mongodb 等等，可以用来快速搭建各种本地环境，程序员必备工具 安装 br">
+<meta property="og:description" content="1、在终端下输入ssh-keygen -p12ssh-keygen -pEnter file in which the key is (&#x2F;Users&#x2F;username&#x2F;.ssh&#x2F;id_rsa):  2、系统会提示选择需要修改的私钥可以直接回车，默认是&#x2F;Users&#x2F;username&#x2F;.ssh&#x2F;id_rsa 3、选好文件后按回车，会提示你输入旧密码：1Enter old passphrase:  4">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-11-18T14:02:57.596Z">
-<meta property="article:modified_time" content="2022-11-27T15:36:08.819Z">
+<meta property="og:image" content="https://images.unsplash.com/photo-1580711508381-9934107eb02c?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNjM5Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2Njk1NjQxNTM&ixlib=rb-4.0.3&q=80&w=3840×160">
+<meta property="article:published_time" content="2022-11-27T15:48:47.189Z">
+<meta property="article:modified_time" content="2022-11-27T15:51:30.771Z">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1580711508381-9934107eb02c?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNjM5Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2Njk1NjQxNTM&ixlib=rb-4.0.3&q=80&w=3840×160">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>郭顺顺的博客</title>
+  <title>去除ssh密码 - 郭顺顺的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -211,7 +214,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="去除ssh密码"></span>
           
         </div>
 
@@ -222,8 +225,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-18 22:02" pubdate>
-          2022年11月18日 晚上
+        <time datetime="2022-11-27 23:48" pubdate>
+          2022年11月27日 晚上
         </time>
       </span>
     
@@ -234,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2k 字
+          306 字
         
       </span>
     
@@ -245,7 +248,7 @@
         
         
         
-          17 分钟
+          3 分钟
         
       </span>
     
@@ -291,12 +294,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none"></h1>
+            <h1 style="display: none">去除ssh密码</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：16 分钟前
+                    本文最后更新于：几秒前
                   
                 
               </p>
@@ -304,57 +307,16 @@
             
               <div class="markdown-body">
                 
-                <h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p>title: mac安装brew包管理工具<br>categories: 开发部署<br>tags:</p>
-<ul>
-<li>mac</li>
-<li>brew</li>
-</ul>
-<hr>
-<p>brew 是 Mac 下的一个包管理工具，类似于 centos 下的 yum，ubuntu中的apt。<br>可以很方便地进行安装/卸载/更新各种软件包。例如：nodejs,svn,tomcat,mysql, mongodb 等等，可以用来快速搭建各种本地环境，程序员必备工具</p>
-<h3 id="安装-brew"><a href="#安装-brew" class="headerlink" title="安装 brew"></a>安装 brew</h3><p>首先要通过如下命令安装 brew</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">/usr/bin/ruby -e <span class="hljs-string">&quot;<span class="hljs-subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>&quot;</span><br></code></pre></td></tr></table></figure>
+                <p><img src="https://images.unsplash.com/photo-1580711508381-9934107eb02c?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNjM5Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2Njk1NjQxNTM&ixlib=rb-4.0.3&q=80&w=3840%C3%971600" srcset="/img/loading.gif" lazyload alt="photo by Birmingham Museums Trust on Unsplash"></p>
+<h1 id="1、在终端下输入ssh-keygen-p"><a href="#1、在终端下输入ssh-keygen-p" class="headerlink" title="1、在终端下输入ssh-keygen -p"></a>1、在终端下输入ssh-keygen -p</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">ssh-keygen -p<br>Enter file <span class="hljs-keyword">in</span> <span class="hljs-built_in">which</span> the key is (/Users/username/.ssh/id_rsa):<br></code></pre></td></tr></table></figure>
 
-<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><h4 id="安装-卸载-更新"><a href="#安装-卸载-更新" class="headerlink" title="安装/卸载/更新"></a>安装/卸载/更新</h4><p>以 nodejs 为例，执行下面命令即可，安装目录在 <code>/usr/local/Cellar</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew install nodejs<br></code></pre></td></tr></table></figure>
+<h1 id="2、系统会提示选择需要修改的私钥"><a href="#2、系统会提示选择需要修改的私钥" class="headerlink" title="2、系统会提示选择需要修改的私钥"></a>2、系统会提示选择需要修改的私钥</h1><p>可以直接回车，默认是/Users/username/.ssh/id_rsa</p>
+<h1 id="3、选好文件后按回车，会提示你输入旧密码："><a href="#3、选好文件后按回车，会提示你输入旧密码：" class="headerlink" title="3、选好文件后按回车，会提示你输入旧密码："></a>3、选好文件后按回车，会提示你输入旧密码：</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">Enter old passphrase:<br></code></pre></td></tr></table></figure>
 
-<p>如果需要更新或卸载</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew upgrade nodejs<br>brew remove nodejs<br></code></pre></td></tr></table></figure>
+<h1 id="4-输入好后会提示输入新密码："><a href="#4-输入好后会提示输入新密码：" class="headerlink" title="4.输入好后会提示输入新密码："></a>4.输入好后会提示输入新密码：</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">Enter new passphrase (empty <span class="hljs-keyword">for</span> no passphrase):<br></code></pre></td></tr></table></figure>
 
-<h4 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew list                   <span class="hljs-comment"># 列出当前安装的软件</span><br>brew list [软件包名]         <span class="hljs-comment"># 查看安装目录</span><br>brew search nodejs          <span class="hljs-comment"># 查询与 nodejs 相关的可用软件</span><br>brew info nodejs            <span class="hljs-comment"># 查询 nodejs 的安装信息</span><br></code></pre></td></tr></table></figure>
+<h1 id="5-如果直接回车，会提示确认新密码，再直接回车，此时以前设置的私钥密码就被清除了："><a href="#5-如果直接回车，会提示确认新密码，再直接回车，此时以前设置的私钥密码就被清除了：" class="headerlink" title="5.如果直接回车，会提示确认新密码，再直接回车，此时以前设置的私钥密码就被清除了："></a>5.如果直接回车，会提示确认新密码，再直接回车，此时以前设置的私钥密码就被清除了：</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">Enter same passphrase again:<br></code></pre></td></tr></table></figure>
 
-<p>如果需要指定版本，可以在 <code>brew search</code> 查看有没有需要的版本，在 <code>@</code> 后面指定版本号，例如 <code>brew install thrift@0.9</code></p>
-<h2 id="brew-services"><a href="#brew-services" class="headerlink" title="brew services"></a>brew services</h2><p><code>brew services</code> 是一个非常强大的工具，可以用来管理各种服务的启停，有点像 linux 里面的 services，非常方便，以 elasticsearch 为例</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew install elasticsearch          <span class="hljs-comment"># 安装 elasticsearch</span><br>brew services start elasticsearch   <span class="hljs-comment"># 启动 elasticsearch</span><br>brew services stop elasticsearch    <span class="hljs-comment"># 停止 elasticsearch</span><br>brew services restart elasticsearch <span class="hljs-comment"># 重启 elasticsearch</span><br>brew services list                  <span class="hljs-comment"># 列出当前的状态</span><br></code></pre></td></tr></table></figure>
-
-<p>brew services 服务相关配置以及日志路径</p>
-<ul>
-<li>  配置路径：<code>/usr/local/etc/</code></li>
-<li>  日志路径：<code>/usr/local/var/log</code></li>
-</ul>
-<h2 id="已经安装Homebrew-想要替换源"><a href="#已经安装Homebrew-想要替换源" class="headerlink" title="已经安装Homebrew,想要替换源"></a>已经安装<code>Homebrew</code>,想要替换源</h2><ul>
-<li>  中科大</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">export</span> HOMEBREW_BREW_GIT_REMOTE=<span class="hljs-string">&quot;https://mirrors.ustc.edu.cn/brew.git&quot;</span><br>brew update<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>  清华</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">export</span> HOMEBREW_BREW_GIT_REMOTE=<span class="hljs-string">&quot;https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git&quot;</span><br>brew update<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>  阿里</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 替换brew.git:</span><br><span class="hljs-built_in">cd</span> <span class="hljs-string">&quot;<span class="hljs-subst">$(brew --repo)</span>&quot;</span><br>git remote set-url origin https://mirrors.aliyun.com/homebrew/brew.git<br><span class="hljs-comment"># 替换homebrew-core.git:</span><br><span class="hljs-built_in">cd</span> <span class="hljs-string">&quot;<span class="hljs-subst">$(brew --repo)</span>/Library/Taps/homebrew/homebrew-core&quot;</span><br>git remote set-url origin https://mirrors.aliyun.com/homebrew/homebrew-core.git<br><span class="hljs-comment"># 应用生效</span><br>brew update<br><span class="hljs-comment"># 替换homebrew-bottles:</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles&#x27;</span> &gt;&gt; ~/.bash_profile<br><span class="hljs-built_in">source</span> ~/.bash_profile<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>  腾讯</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sh">腾讯源<br><br>替换brew.git:<br><span class="hljs-built_in">cd</span> <span class="hljs-string">&quot;<span class="hljs-subst">$(brew --repo)</span>&quot;</span><br>git remote set-url origin https://mirrors.cloud.tencent.com/homebrew/brew.git<br><br>替换homebrew-core.git:<br><span class="hljs-built_in">cd</span> <span class="hljs-string">&quot;<span class="hljs-subst">$(brew --repo)</span>/Library/Taps/homebrew/homebrew-core&quot;</span><br>git remote set-url origin https://mirrors.cloud.tencent.com/homebrew/homebrew-core.git<br><br><span class="hljs-comment"># 刷新源</span><br>brew update<br></code></pre></td></tr></table></figure>
-
-
-<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
-<li>  brew 官网：<a target="_blank" rel="noopener" href="https://brew.sh/">https://brew.sh/</a></li>
-</ul>
 
                 
               </div>
@@ -363,6 +325,34 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/linux/" class="category-chain-item">linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/linux/">#linux</a>
+      
+    </div>
   
 </div>
 
@@ -372,15 +362,15 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
-      <div>https://guoaccount.github.io/2022/11/18/mac安装brew包管理工具/</div>
+      <div>去除ssh密码</div>
+      <div>https://guoaccount.github.io/2022/11/27/去除ssh密码/</div>
     </div>
     <div class="license-meta">
       
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年11月18日</div>
+          <div>2022年11月27日</div>
         </div>
       
       
@@ -417,18 +407,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/11/19/Java%E8%AF%B7%E6%B1%82%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%A5%E5%8F%A3%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%EF%BC%88httpclient%EF%BC%89/" title="（httpclient）Java请求第三方接口获取数据">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">（httpclient）Java请求第三方接口获取数据</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/11/18/mac%E5%AE%89%E8%A3%85SVN/" title="mac安装SVN">
-                        <span class="hidden-mobile">mac安装SVN</span>
+                      <a href="/2022/11/27/Linux%20export%20%E5%91%BD%E4%BB%A4/" title="Linux export 命令">
+                        <span class="hidden-mobile">Linux export 命令</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

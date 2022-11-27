@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>去除ssh密码</title>
+    <link href="/2022/11/27/%E5%8E%BB%E9%99%A4ssh%E5%AF%86%E7%A0%81/"/>
+    <url>/2022/11/27/%E5%8E%BB%E9%99%A4ssh%E5%AF%86%E7%A0%81/</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://images.unsplash.com/photo-1580711508381-9934107eb02c?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNjM5Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2Njk1NjQxNTM&ixlib=rb-4.0.3&q=80&w=3840%C3%971600" alt="photo by Birmingham Museums Trust on Unsplash"></p><h1 id="1、在终端下输入ssh-keygen-p"><a href="#1、在终端下输入ssh-keygen-p" class="headerlink" title="1、在终端下输入ssh-keygen -p"></a>1、在终端下输入ssh-keygen -p</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">ssh-keygen -p<br>Enter file <span class="hljs-keyword">in</span> <span class="hljs-built_in">which</span> the key is (/Users/username/.ssh/id_rsa):<br></code></pre></td></tr></table></figure><h1 id="2、系统会提示选择需要修改的私钥"><a href="#2、系统会提示选择需要修改的私钥" class="headerlink" title="2、系统会提示选择需要修改的私钥"></a>2、系统会提示选择需要修改的私钥</h1><p>可以直接回车，默认是/Users/username/.ssh/id_rsa</p><h1 id="3、选好文件后按回车，会提示你输入旧密码："><a href="#3、选好文件后按回车，会提示你输入旧密码：" class="headerlink" title="3、选好文件后按回车，会提示你输入旧密码："></a>3、选好文件后按回车，会提示你输入旧密码：</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">Enter old passphrase:<br></code></pre></td></tr></table></figure><h1 id="4-输入好后会提示输入新密码："><a href="#4-输入好后会提示输入新密码：" class="headerlink" title="4.输入好后会提示输入新密码："></a>4.输入好后会提示输入新密码：</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">Enter new passphrase (empty <span class="hljs-keyword">for</span> no passphrase):<br></code></pre></td></tr></table></figure><h1 id="5-如果直接回车，会提示确认新密码，再直接回车，此时以前设置的私钥密码就被清除了："><a href="#5-如果直接回车，会提示确认新密码，再直接回车，此时以前设置的私钥密码就被清除了：" class="headerlink" title="5.如果直接回车，会提示确认新密码，再直接回车，此时以前设置的私钥密码就被清除了："></a>5.如果直接回车，会提示确认新密码，再直接回车，此时以前设置的私钥密码就被清除了：</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">Enter same passphrase again:<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Linux export 命令</title>
     <link href="/2022/11/27/Linux%20export%20%E5%91%BD%E4%BB%A4/"/>
     <url>/2022/11/27/Linux%20export%20%E5%91%BD%E4%BB%A4/</url>
