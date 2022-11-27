@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://images.unsplash.com/photo-1653200256772-06b9e87b40f6?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNjM5Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2Njk1NjMzNjc&ixlib=rb-4.0.3&q=80&w=3840×1600">
 <meta property="article:published_time" content="2022-11-27T15:37:16.970Z">
-<meta property="article:modified_time" content="2022-11-27T15:45:02.627Z">
+<meta property="article:modified_time" content="2022-11-27T15:46:40.829Z">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://images.unsplash.com/photo-1653200256772-06b9e87b40f6?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNjM5Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2Njk1NjMzNjc&ixlib=rb-4.0.3&q=80&w=3840×1600">
@@ -319,10 +319,8 @@
 -n 删除指定的变量。变量实际上并未删除，只是不会输出到后续指令的执行环境中。<br/>
 -p 列出所有的shell赋予程序的环境变量。
 </p>
-ß
-### 实例
 
-<p>列出当前所有的环境变量</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>列出当前所有的环境变量</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># export -p //列出当前的环境变量值</span><br><span class="hljs-built_in">declare</span> -x HOME=“/root“<br><span class="hljs-built_in">declare</span> -x LANG=“zh_CN.UTF-8“<br><span class="hljs-built_in">declare</span> -x LANGUAGE=“zh_CN:zh“<br><span class="hljs-built_in">declare</span> -x LESSCLOSE=“/usr/bin/lesspipe %s %s“<br><span class="hljs-built_in">declare</span> -x LESSOPEN=“| /usr/bin/lesspipe %s“<br><span class="hljs-built_in">declare</span> -x LOGNAME=“root“<br><span class="hljs-built_in">declare</span> -x LS_COLORS=““<br><span class="hljs-built_in">declare</span> -x MAIL=“/var/mail/root“<br><span class="hljs-built_in">declare</span> -x OLDPWD<br><span class="hljs-built_in">declare</span> -x PATH=“/opt/toolchains/arm920t-eabi/bin:/opt/toolchains/arm920t-eabi/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games“<br><span class="hljs-built_in">declare</span> -x PWD=“/root“<br><span class="hljs-built_in">declare</span> -x SHELL=“/bin/bash“<br><span class="hljs-built_in">declare</span> -x SHLVL=“1“<br><span class="hljs-built_in">declare</span> -x SPEECHD_PORT=“6560“<br><span class="hljs-built_in">declare</span> -x SSH_CLIENT=“192.168.1.65 1674 22“<br><span class="hljs-built_in">declare</span> -x SSH_CONNECTION=“192.168.1.65 1674 192.168.1.3 22“<br><span class="hljs-built_in">declare</span> -x SSH_TTY=“/dev/pts/2“<br><span class="hljs-built_in">declare</span> -x TERM=“XTERM“<br><span class="hljs-built_in">declare</span> -x USER=“root“<br><span class="hljs-built_in">declare</span> -x XDG_SESSION_COOKIE=“93b5d3d03e032c0cf892a4474bebda9f-1273864738.954257-340206484“<br></code></pre></td></tr></table></figure>
 
 <p>定义环境变量</p>
