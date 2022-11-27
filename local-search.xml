@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>echo、touch、cat的常用功能</title>
+    <link href="/2022/11/27/echo%E3%80%81touch%E3%80%81cat%E7%9A%84%E5%B8%B8%E7%94%A8%E5%8A%9F%E8%83%BD/"/>
+    <url>/2022/11/27/echo%E3%80%81touch%E3%80%81cat%E7%9A%84%E5%B8%B8%E7%94%A8%E5%8A%9F%E8%83%BD/</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://images.unsplash.com/photo-1584727638120-6819c82e954b?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNjM5Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2Njk1NjE5ODk&ixlib=rb-4.0.3&q=80&w=3840%C3%971600" alt="photo by Europeana on Unsplash"></p><h3 id="touch-创建文件"><a href="#touch-创建文件" class="headerlink" title="touch:创建文件"></a>touch:创建文件</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">touch</span> filename<br></code></pre></td></tr></table></figure><h3 id="echo-向文件中写入内容-gt-gt-追加，-gt-覆盖"><a href="#echo-向文件中写入内容-gt-gt-追加，-gt-覆盖" class="headerlink" title="echo:向文件中写入内容(&gt;&gt;追加，&gt;覆盖)"></a>echo:向文件中写入内容(&gt;&gt;追加，&gt;覆盖)</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">echo</span> 内容&gt;&gt;文件<br><span class="hljs-built_in">echo</span> 内容&gt;文件<br></code></pre></td></tr></table></figure><h3 id="cat-一次显示整个文件"><a href="#cat-一次显示整个文件" class="headerlink" title="cat:一次显示整个文件"></a>cat:一次显示整个文件</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cat</span> filename<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>mac上JDK多版本管理</title>
     <link href="/2022/11/26/mac%E4%B8%8AJDK%E5%A4%9A%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/"/>
     <url>/2022/11/26/mac%E4%B8%8AJDK%E5%A4%9A%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/</url>
