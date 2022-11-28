@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>brew install 和 brew cask install 的区别</title>
+    <link href="/2022/11/28/brew%20install%20%E5%92%8C%20brew%20cask%20install%20%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <url>/2022/11/28/brew%20install%20%E5%92%8C%20brew%20cask%20install%20%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    
+    <content type="html"><![CDATA[<p>Homebrew 是一款 Mac OS 平台下的软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多实用的功能。</p><p>Homebrew 通过简单的一条指令，就可以实现包管理，不需要关心各种依赖和文件路径的情况。</p><p>Homebrew 的两个术语：</p><ul><li>  Formulae：软件包，包括了这个软件的依赖、源码位置及编译方法等；</li><li>  Casks：已经编译好的应用包，如图形界面程序等。</li></ul><p>Homebrw相关的几个文件夹用途：</p><ul><li>  bin：用于存放所安装程序的启动链接（相当于快捷方式）</li><li>  etc：brew安装程序的配置文件默认存放路径</li><li>  Library：Homebrew 系统自身文件夹</li><li>  Cellar：通过brew安装的程序将以 [程序名/版本号] 存放于本目录下</li></ul><p>常用的 brew 命令：</p><ul><li>  查看brew版本：brew -v</li><li>  更新brew版本：brew update</li><li>  本地软件库列表：brew list</li><li>  查看软件库版本：brew list –versions</li><li>  查找软件包：brew search xxx （xxx为要查找软件的关键词）</li><li>  <strong>安装软件包：brew install xxx （xxx为软件包名称）</strong></li><li>  卸载软件包：brew uninstall xxx</li><li>  <strong>安装软件：brew cask install xxx（xxx为软件名称）</strong></li><li>  卸载软件：brew cask uninstall xxx</li><li>  查找软件安装位置：which xxx （xxx为软件名称）</li></ul><p>Homebrew 提供了两种安装软件的方式，brew install 和 brew cask install，下面对两种方式进行一些解释说明。</p><h2 id="1-brew-install"><a href="#1-brew-install" class="headerlink" title="1. brew install"></a>1. brew install</h2><p>brew 是下载源码解压，然后 ./configure &amp;&amp; make install ，同时会包含相关依存库，并自动配置好各种环境变量。</p><blockquote><p>Homebrew is the easiest and most flexible way to install the UNIX tools Apple didn’t include with macOS.</p></blockquote><p>对于对程序员只需通过简单的指令，就能快速安装和升级本地的各种开发环境，非常快捷方便。</p><h2 id="2-brew-cask-install"><a href="#2-brew-cask-install" class="headerlink" title="2. brew cask install"></a>2. brew cask install</h2><p>brew cask 是针对已经编译好了的应用包（.dmg/.pkg）下载解压，然后放在统一的目录中（Caskroom），省掉了自己下载、解压、安装等步骤。</p><blockquote><p>Homebrew-Cask extends Homebrew and brings its elegance, simplicity, and speed to macOS applications and large binaries alike.</p></blockquote><p>这个对一般用户来说会比较方便，包含很多在 AppStore 里没有的常用软件。</p><p>简单来说，</p><ul><li>  brew install 用来安装一些不带界面的命令行工具和第三方库。</li><li>  brew cask install 用来安装一些带界面的应用软件。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>mac</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>mac</tag>
+      
+      <tag>Homebrew</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>去除ssh密码</title>
     <link href="/2022/11/27/%E5%8E%BB%E9%99%A4ssh%E5%AF%86%E7%A0%81/"/>
     <url>/2022/11/27/%E5%8E%BB%E9%99%A4ssh%E5%AF%86%E7%A0%81/</url>
