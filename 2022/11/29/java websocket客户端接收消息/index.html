@@ -16,25 +16,24 @@
   <meta name="author" content="">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1、在终端下输入ssh-keygen -p12ssh-keygen -pEnter file in which the key is (&#x2F;Users&#x2F;username&#x2F;.ssh&#x2F;id_rsa):  2、系统会提示选择需要修改的私钥可以直接回车，默认是&#x2F;Users&#x2F;username&#x2F;.ssh&#x2F;id_rsa 3、选好文件后按回车，会提示你输入旧密码：1Enter old passphrase:  4">
+    <meta name="description" content="1.需要引入的依赖12345&lt;dependency&gt;     &lt;groupId&gt;org.java-websocket&lt;&#x2F;groupId&gt;     &lt;artifactId&gt;Java-WebSocket&lt;&#x2F;artifactId&gt;     &lt;version&gt;1.3.5&lt;&#x2F;version&gt;&lt;&#x2F;dependency&amp;g">
 <meta property="og:type" content="article">
-<meta property="og:title" content="去除ssh密码">
-<meta property="og:url" content="https://guoaccount.github.io/2022/11/27/%E5%8E%BB%E9%99%A4ssh%E5%AF%86%E7%A0%81/index.html">
+<meta property="og:title" content="java websocket客户端接收消息">
+<meta property="og:url" content="https://guoaccount.github.io/2022/11/29/java%20websocket%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%A5%E6%94%B6%E6%B6%88%E6%81%AF/index.html">
 <meta property="og:site_name" content="郭顺顺的博客">
-<meta property="og:description" content="1、在终端下输入ssh-keygen -p12ssh-keygen -pEnter file in which the key is (&#x2F;Users&#x2F;username&#x2F;.ssh&#x2F;id_rsa):  2、系统会提示选择需要修改的私钥可以直接回车，默认是&#x2F;Users&#x2F;username&#x2F;.ssh&#x2F;id_rsa 3、选好文件后按回车，会提示你输入旧密码：1Enter old passphrase:  4">
+<meta property="og:description" content="1.需要引入的依赖12345&lt;dependency&gt;     &lt;groupId&gt;org.java-websocket&lt;&#x2F;groupId&gt;     &lt;artifactId&gt;Java-WebSocket&lt;&#x2F;artifactId&gt;     &lt;version&gt;1.3.5&lt;&#x2F;version&gt;&lt;&#x2F;dependency&amp;g">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://images.unsplash.com/photo-1580711508381-9934107eb02c?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNjM5Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2Njk1NjQxNTM&ixlib=rb-4.0.3&q=80&w=3840×160">
-<meta property="article:published_time" content="2022-11-27T15:48:47.189Z">
-<meta property="article:modified_time" content="2022-11-27T15:51:30.771Z">
-<meta property="article:tag" content="linux">
+<meta property="article:published_time" content="2022-11-29T02:58:16.863Z">
+<meta property="article:modified_time" content="2022-11-29T02:59:05.367Z">
+<meta property="article:tag" content="后端">
+<meta property="article:tag" content="websocket">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://images.unsplash.com/photo-1580711508381-9934107eb02c?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNjM5Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2Njk1NjQxNTM&ixlib=rb-4.0.3&q=80&w=3840×160">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>去除ssh密码 - 郭顺顺的博客</title>
+  <title>java websocket客户端接收消息 - 郭顺顺的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -214,7 +213,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="去除ssh密码"></span>
+            <span id="subtitle" data-typed-text="java websocket客户端接收消息"></span>
           
         </div>
 
@@ -225,8 +224,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-27 23:48" pubdate>
-          2022年11月27日 晚上
+        <time datetime="2022-11-29 10:58" pubdate>
+          2022年11月29日 上午
         </time>
       </span>
     
@@ -237,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          306 字
+          2k 字
         
       </span>
     
@@ -248,7 +247,7 @@
         
         
         
-          3 分钟
+          17 分钟
         
       </span>
     
@@ -294,12 +293,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">去除ssh密码</h1>
+            <h1 style="display: none">java websocket客户端接收消息</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：1 天前
+                    本文最后更新于：1 分钟前
                   
                 
               </p>
@@ -307,15 +306,11 @@
             
               <div class="markdown-body">
                 
-                <p><img src="https://images.unsplash.com/photo-1580711508381-9934107eb02c?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNjM5Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2Njk1NjQxNTM&ixlib=rb-4.0.3&q=80&w=3840%C3%971600" srcset="/img/loading.gif" lazyload alt="photo by Birmingham Museums Trust on Unsplash"></p>
-<h1 id="1、在终端下输入ssh-keygen-p"><a href="#1、在终端下输入ssh-keygen-p" class="headerlink" title="1、在终端下输入ssh-keygen -p"></a>1、在终端下输入ssh-keygen -p</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">ssh-keygen -p<br>Enter file <span class="hljs-keyword">in</span> <span class="hljs-built_in">which</span> the key is (/Users/username/.ssh/id_rsa):<br></code></pre></td></tr></table></figure>
+                <h3 id="1-需要引入的依赖"><a href="#1-需要引入的依赖" class="headerlink" title="1.需要引入的依赖"></a>1.需要引入的依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.java-websocket<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>Java-WebSocket<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.3.5<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-<h1 id="2、系统会提示选择需要修改的私钥"><a href="#2、系统会提示选择需要修改的私钥" class="headerlink" title="2、系统会提示选择需要修改的私钥"></a>2、系统会提示选择需要修改的私钥</h1><p>可以直接回车，默认是/Users/username/.ssh/id_rsa</p>
-<h1 id="3、选好文件后按回车，会提示你输入旧密码："><a href="#3、选好文件后按回车，会提示你输入旧密码：" class="headerlink" title="3、选好文件后按回车，会提示你输入旧密码："></a>3、选好文件后按回车，会提示你输入旧密码：</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">Enter old passphrase:<br></code></pre></td></tr></table></figure>
+<h3 id="2-客户端代码"><a href="#2-客户端代码" class="headerlink" title="2.客户端代码"></a>2.客户端代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ase.business.websocket;  <br>  <br><span class="hljs-keyword">import</span> java.net.URI;  <br><span class="hljs-keyword">import</span> java.net.URISyntaxException;  <br><span class="hljs-keyword">import</span> java.util.Iterator;  <br><span class="hljs-keyword">import</span> java.util.Map;  <br>  <br><span class="hljs-keyword">import</span> org.java_websocket.WebSocket;  <br><span class="hljs-keyword">import</span> org.java_websocket.client.WebSocketClient;  <br><span class="hljs-keyword">import</span> org.java_websocket.drafts.Draft;  <br><span class="hljs-keyword">import</span> org.java_websocket.handshake.ServerHandshake;  <br>  <br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ClientWebSocket</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">WebSocketClient</span>&#123;  <br>  <br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">ClientWebSocket</span><span class="hljs-params">(URI serverUri)</span> &#123;  <br>        <span class="hljs-built_in">super</span>(serverUri);  <br>    &#125;  <br>  <br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">ClientWebSocket</span><span class="hljs-params">(URI serverUri, Draft protocolDraft)</span> &#123;  <br>        <span class="hljs-built_in">super</span>(serverUri, protocolDraft);  <br>    &#125;  <br>  <br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">ClientWebSocket</span><span class="hljs-params">(URI serverUri, Draft protocolDraft, Map&lt;String, String&gt; httpHeaders, <span class="hljs-type">int</span> connectTimeout)</span> &#123;  <br>        <span class="hljs-built_in">super</span>(serverUri, protocolDraft, httpHeaders, connectTimeout);  <br>    &#125;  <br>  <br>    <span class="hljs-meta">@Override</span>  <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">onOpen</span><span class="hljs-params">(ServerHandshake shake)</span> &#123;  <br>        System.out.println(<span class="hljs-string">&quot;握手...&quot;</span>);  <br>        <span class="hljs-keyword">for</span>(Iterator&lt;String&gt; it=shake.iterateHttpFields();it.hasNext();) &#123;  <br>            <span class="hljs-type">String</span> <span class="hljs-variable">key</span> <span class="hljs-operator">=</span> it.next();  <br>            System.out.println(key+<span class="hljs-string">&quot;:&quot;</span>+shake.getFieldValue(key));  <br>        &#125;  <br>    &#125;  <br>  <br>    <span class="hljs-meta">@Override</span>  <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">onMessage</span><span class="hljs-params">(String paramString)</span> &#123;  <br>        System.out.println(<span class="hljs-string">&quot;接收到消息：&quot;</span>+paramString);  <br>    &#125;  <br>  <br>    <span class="hljs-meta">@Override</span>  <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">onClose</span><span class="hljs-params">(<span class="hljs-type">int</span> paramInt, String paramString, <span class="hljs-type">boolean</span> paramBoolean)</span> &#123;  <br>        System.out.println(<span class="hljs-string">&quot;关闭...&quot;</span>);  <br>    &#125;  <br>  <br>    <span class="hljs-meta">@Override</span>  <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">onError</span><span class="hljs-params">(Exception e)</span> &#123;  <br>        System.out.println(<span class="hljs-string">&quot;异常&quot;</span>+e);  <br>  <br>    &#125;  <br><span class="hljs-comment">/**</span><br><span class="hljs-comment">使用</span><br><span class="hljs-comment">**/</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;  <br>        <span class="hljs-keyword">try</span> &#123;  <br>            <span class="hljs-type">ClientWebSocket</span> <span class="hljs-variable">client</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ClientWebSocket</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">URI</span>(<span class="hljs-string">&quot;ws://154.55.128.25:39001&quot;</span>));  <br>            client.connect();  <br>            <span class="hljs-keyword">while</span> (!client.getReadyState().equals(WebSocket.READYSTATE.OPEN)) &#123;  <br>                System.out.println(<span class="hljs-string">&quot;还没有打开&quot;</span>);  <br>            &#125;  <br>            System.out.println(<span class="hljs-string">&quot;建立websocket连接&quot;</span>);  <br>            client.send(<span class="hljs-string">&quot;asd&quot;</span>);  <br>        &#125; <span class="hljs-keyword">catch</span> (URISyntaxException e) &#123;  <br>            e.printStackTrace();  <br>        &#125;  <br>    &#125;  <br>  <br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h1 id="4-输入好后会提示输入新密码："><a href="#4-输入好后会提示输入新密码：" class="headerlink" title="4.输入好后会提示输入新密码："></a>4.输入好后会提示输入新密码：</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">Enter new passphrase (empty <span class="hljs-keyword">for</span> no passphrase):<br></code></pre></td></tr></table></figure>
 
-<h1 id="5-如果直接回车，会提示确认新密码，再直接回车，此时以前设置的私钥密码就被清除了："><a href="#5-如果直接回车，会提示确认新密码，再直接回车，此时以前设置的私钥密码就被清除了：" class="headerlink" title="5.如果直接回车，会提示确认新密码，再直接回车，此时以前设置的私钥密码就被清除了："></a>5.如果直接回车，会提示确认新密码，再直接回车，此时以前设置的私钥密码就被清除了：</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">Enter same passphrase again:<br></code></pre></td></tr></table></figure>
 
 
                 
@@ -335,7 +330,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/linux/" class="category-chain-item">linux</a>
+  <a href="/categories/%E5%90%8E%E7%AB%AF/" class="category-chain-item">后端</a>
   
   
 
@@ -350,7 +345,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/linux/">#linux</a>
+        <a href="/tags/%E5%90%8E%E7%AB%AF/">#后端</a>
+      
+        <a href="/tags/websocket/">#websocket</a>
       
     </div>
   
@@ -362,21 +359,21 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>去除ssh密码</div>
-      <div>https://guoaccount.github.io/2022/11/27/去除ssh密码/</div>
+      <div>java websocket客户端接收消息</div>
+      <div>https://guoaccount.github.io/2022/11/29/java websocket客户端接收消息/</div>
     </div>
     <div class="license-meta">
       
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年11月27日</div>
+          <div>2022年11月29日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年11月27日</div>
+          <div>2022年11月29日</div>
         </div>
       
       
@@ -407,18 +404,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/11/28/brew%20install%20%E5%92%8C%20brew%20cask%20install%20%E7%9A%84%E5%8C%BA%E5%88%AB/" title="brew install 和 brew cask install 的区别">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">brew install 和 brew cask install 的区别</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/11/27/Linux%20export%20%E5%91%BD%E4%BB%A4/" title="Linux export 命令">
-                        <span class="hidden-mobile">Linux export 命令</span>
+                      <a href="/2022/11/28/Linux%E4%B8%AD%E7%9A%84source%E5%91%BD%E4%BB%A4/" title="Linux中的source命令">
+                        <span class="hidden-mobile">Linux中的source命令</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
