@@ -4,13 +4,25 @@
   
   
   <entry>
-    <title>213</title>
+    <title>关于BigDecimal和Integer计算的坑</title>
     <link href="/2022/12/02/%E5%85%B3%E4%BA%8EBigDecimal%E5%92%8CInteger%E8%AE%A1%E7%AE%97%E7%9A%84%E5%9D%91/"/>
     <url>/2022/12/02/%E5%85%B3%E4%BA%8EBigDecimal%E5%92%8CInteger%E8%AE%A1%E7%AE%97%E7%9A%84%E5%9D%91/</url>
     
     <content type="html"><![CDATA[<h3 id="1-BigDecimal"><a href="#1-BigDecimal" class="headerlink" title="1. BigDecimal"></a>1. BigDecimal</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">BigDecimal</span> <span class="hljs-variable">balance</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BigDecimal</span>(<span class="hljs-number">0</span>);<br><br>balance = balance.subtract(atTheSameReward);<span class="hljs-comment">// balance.subtract(atTheSameReward)返回新的对象 直接赋值 balance的引用指向就变了 </span><br></code></pre></td></tr></table></figure><ul><li>BigDecimal进行加减乘除时会返回一个新的对象。</li><li>BigDecimal都是不可变的（immutable）的，在进行每一步运算时，都会产生一个新的对象，所以在做加减乘除运算时千万要保存操作后的值。</li></ul><p><img src="https://cdn.staticaly.com/gh/GuoAccount/obsidianImage/main/img/20221202160552.png"></p><p>引用间赋值只是把对象内存复制给被赋值的引用：</p><p>ZERO是存储在栈中的对象的引用；存储对象的内存地址。new BigDecimal(0)是存储在堆中的对象。<br><img src="https://cdn.staticaly.com/gh/GuoAccount/obsidianImage/main/img/20221202160614.png"></p><p>当被赋值的引用改变时，改变的只是当前引用中存储的对象内存地址，把当前的内存地址替换成被赋值的新的内存地址。<br>而原先旧的内存地址指向的对象不会发生任何改变（可以看到ZERO指向的对象没有发生任何改变,结果还是0）<br><img src="https://cdn.staticaly.com/gh/GuoAccount/obsidianImage/main/img/20221202160659.png"></p><h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><p><strong>引用间的赋值，只是改变了被赋值的引用指向的对象。不会对原先指向的对象造成任何改变。（_当没有任何引用指向原先的对象时,该对象会被清空_）</strong></p><h3 id="2-Integer"><a href="#2-Integer" class="headerlink" title="2.Integer"></a>2.Integer</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Integer</span> <span class="hljs-variable">aaa</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Integer</span>(<span class="hljs-number">153</span>);  <br><br>aaa += <span class="hljs-number">1</span>;<span class="hljs-comment">//返回新的对象 直接赋值 aaa的引用指向就变了 指向新的对象</span><br><br></code></pre></td></tr></table></figure><p>Integer进行加减乘除时会返回一个新的对象</p><p>计算前对象指向：<br><img src="https://cdn.staticaly.com/gh/GuoAccount/obsidianImage/main/img/20221202155702.png"></p><p>计算并赋值后，对象的地址改变了：<br><img src="https://cdn.staticaly.com/gh/GuoAccount/obsidianImage/main/img/20221202155745.png"></p>]]></content>
     
     
+    <categories>
+      
+      <category>tips</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>tips</tag>
+      
+    </tags>
     
   </entry>
   
