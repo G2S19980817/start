@@ -16,26 +16,25 @@
   <meta name="author" content="">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Happiness is not in the mere possession of money; it lies in the joy of achievement, in the thrill of creative effort.— Franklin D. Roosevelt   undefind 是全局对象的一个属性，当一个变量没有被赋值或者一个函数没有返回值或者某个对象不存在某个属性">
+    <meta name="description" content="Vue的父子间传值 ： props 更复杂的结构：vuex provide&#x2F;inject提供&#x2F;注入  provide一个对象或返回一个对象的函数。该对象包含可注入其子孙的属性。在该对象中你可以使用 ES2015 Symbols 作为 key，但是只在原生支持 Symbol 和 Reflect.ownKeys 的环境下可工作。   inject一个字符串数组，或一个对象  使用场景例如这样的层次结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js中null和undefined的区别">
-<meta property="og:url" content="https://guoaccount.github.io/2022/12/06/js%E4%B8%ADnull%E5%92%8Cundefined%E7%9A%84%E5%8C%BA%E5%88%AB/index.html">
+<meta property="og:title" content="爷孙或者更深嵌套的组件间传值： provide&#x2F;inject">
+<meta property="og:url" content="https://guoaccount.github.io/2022/12/14/%E7%88%B7%E5%AD%99%E6%88%96%E8%80%85%E6%9B%B4%E6%B7%B1%E5%B5%8C%E5%A5%97%E7%9A%84%E7%BB%84%E4%BB%B6%E9%97%B4%E4%BC%A0%E5%80%BC%EF%BC%9A%20provide%EF%BC%8Cinject/index.html">
 <meta property="og:site_name" content="郭顺顺的博客">
-<meta property="og:description" content="Happiness is not in the mere possession of money; it lies in the joy of achievement, in the thrill of creative effort.— Franklin D. Roosevelt   undefind 是全局对象的一个属性，当一个变量没有被赋值或者一个函数没有返回值或者某个对象不存在某个属性">
+<meta property="og:description" content="Vue的父子间传值 ： props 更复杂的结构：vuex provide&#x2F;inject提供&#x2F;注入  provide一个对象或返回一个对象的函数。该对象包含可注入其子孙的属性。在该对象中你可以使用 ES2015 Symbols 作为 key，但是只在原生支持 Symbol 和 Reflect.ownKeys 的环境下可工作。   inject一个字符串数组，或一个对象  使用场景例如这样的层次结构">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://images.unsplash.com/photo-1658248165140-f58976e1551d?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNjM5Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzAyOTM0Mjk&ixlib=rb-4.0.3&q=80&w=3840%C3%971600">
-<meta property="article:published_time" content="2022-12-06T02:26:32.090Z">
-<meta property="article:modified_time" content="2022-12-14T12:31:14.856Z">
+<meta property="article:published_time" content="2022-12-14T12:11:34.220Z">
+<meta property="article:modified_time" content="2023-01-04T12:18:07.644Z">
 <meta property="article:tag" content="前端">
-<meta property="article:tag" content="js">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="组件传参">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://images.unsplash.com/photo-1658248165140-f58976e1551d?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNjM5Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzAyOTM0Mjk&ixlib=rb-4.0.3&q=80&w=3840%C3%971600">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>js中null和undefined的区别 - 郭顺顺的博客</title>
+  <title>爷孙或者更深嵌套的组件间传值： provide/inject - 郭顺顺的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -215,7 +214,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="js中null和undefined的区别"></span>
+            <span id="subtitle" data-typed-text="爷孙或者更深嵌套的组件间传值： provide/inject"></span>
           
         </div>
 
@@ -226,8 +225,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-12-06 10:26" pubdate>
-          2022年12月6日 上午
+        <time datetime="2022-12-14 20:11" pubdate>
+          2022年12月14日 晚上
         </time>
       </span>
     
@@ -238,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          967 字
+          1.1k 字
         
       </span>
     
@@ -249,7 +248,7 @@
         
         
         
-          9 分钟
+          10 分钟
         
       </span>
     
@@ -295,12 +294,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">js中null和undefined的区别</h1>
+            <h1 style="display: none">爷孙或者更深嵌套的组件间传值： provide/inject</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：21 天前
+                    本文最后更新于：1 分钟前
                   
                 
               </p>
@@ -308,33 +307,35 @@
             
               <div class="markdown-body">
                 
-                <p><img src="https://images.unsplash.com/photo-1658248165140-f58976e1551d?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNjM5Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzAyOTM0Mjk&ixlib=rb-4.0.3&q=80&w=3840%C3%971600" srcset="/img/loading.gif" lazyload alt="photo by Resource Database™ on Unsplash"></p>
+                <p>Vue的父子间传值 ： props</p>
+<p>更复杂的结构：vuex</p>
+<p><strong>provide/inject<br>提供/注入</strong></p>
 <blockquote>
-<p>Happiness is not in the mere possession of money; it lies in the joy of achievement, in the thrill of creative effort.<br>— <cite>Franklin D. Roosevelt</cite></p>
+<p>provide<br>一个对象或返回一个对象的函数。该对象包含可注入其子孙的属性。在该对象中你可以使用 ES2015 Symbols 作为 key，但是只在原生支持 Symbol 和 Reflect.ownKeys 的环境下可工作。</p>
 </blockquote>
-<p class="note note-primary">
-undefind 是全局对象的一个属性，当一个变量没有被赋值或者一个函数没有返回值或者某个对象不存在某个属性却去访问或者函数定义了形参但没有传递实参，这时候都是undefined。
-</p>
-<p class="note note-primary">
-undefined通过typeof判断类型是'undefined'。undefined == undefined undefined === undefined 。
-</p>
-<p class="note note-primary">
-null代表对象的值未设置，相当于一个对象没有设置指针地址就是null。null通过typeof判断类型是'object'。
-</p>
+<blockquote>
+<p>inject<br>一个字符串数组，或一个对象</p>
+</blockquote>
+<p>使用场景<br>例如这样的层次结构</p>
+<p>Root<br>└─ 组件A<br>   ├─ 组件B<br>   └─ 组件C<br>      ├─ 组件D<br>      └─ 组件E</p>
+<p>如果要将 组件A 的数据直接传递给 组件E，我们要将 prop 逐级传递下去：组件A -&gt; 组件C -&gt; 组件E。</p>
+<p>而通过*provide/inject *，可直接从 组件A传递给 组件E</p>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><h3 id="父组件-祖先组件-，提供provide"><a href="#父组件-祖先组件-，提供provide" class="headerlink" title="父组件/祖先组件 ，提供provide"></a>父组件/祖先组件 ，提供provide</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;grandfather&quot;</span>,<br>  <span class="hljs-title function_">provide</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-keyword">return</span>&#123;<br>      <span class="hljs-attr">foo</span>:<span class="hljs-string">&#x27;halo&#x27;</span><br>    &#125;<br>  &#125;,<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p><em>null === null null == null null == undefined null !== undefined</em></p>
-<h1 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h1><p>undefined 表示一个变量初始状态值，而 null 则表示一个变量被人为的设置为空对象，而不是原始状态。</p>
-<p>在实际使用过程中，不需要对一个变量显式的赋值 undefined，当需要释放一个对象时，直接赋值为 null 即可。 让一个变量为null，直接给该变量赋值为null即可。</p>
-<p>null 其实属于自己的类型 Null，而不属于Object类型，typeof 之所以会判定为 Object 类型，是因为JavaScript 数据类型在底层都是以二进制的形式表示的，二进制的前三位为 0 会被 typeof 判断为对象类型，而 null 的二进制位恰好都是 0 ，因此，null 被误判断为 Object 类型。 对象被赋值了null 以后，对象对应的堆内存中的值就是游离状态了，GC 会择机回收该值并释放内存。</p>
-<p>因此，需要释放某个对象，就将变量设置为 null，即表示该对象已经被清空，目前无效状态。</p>
-<h1 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h1><ol>
-<li>null是一个引用内存地址为空的对象。</li>
-<li>undefined是一个被定义但未被初始化的变量。</li>
-<li>undefined不是关键字，而null是关键字。</li>
-<li>undefined和null被转换为布尔值的时候，两者都为false。</li>
-<li>undefined在和null进行==比较时两者相等，全等于比较时两者不等</li>
-<li>使用Number()对undefined和null进行类型转换，null为0，undefined为NaN</li>
-</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//第二种</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;grandfather&quot;</span>,<br>  <span class="hljs-attr">provide</span>:&#123;<br>    <span class="hljs-attr">foo</span>:<span class="hljs-string">&#x27;halo~~~~&#x27;</span><br>  &#125;,<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 后代组件 ，注入inject</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-attr">inject</span>:[<span class="hljs-string">&#x27;foo&#x27;</span>],<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>provide方法</p>
+<p>祖先组件的<strong>provide</strong>方法<strong>只建议第一种</strong>，即函数写法。若想传递的数据只是字符串，两种方式并无区别，但是<strong>第二种方法（对象写法）不能传递对象</strong>。</p>
+<p><strong>provide/inject 不是可响应的</strong></p>
+<p>provide 和 inject 绑定并不是可响应的。这是刻意为之的。<strong>然而，如果你传入了一个可监听的对象，那么其对象的属性还是可响应的</strong>。</p>
+<h3 id="我们可以通过传递一个对象的方式，实现数据的响应式。"><a href="#我们可以通过传递一个对象的方式，实现数据的响应式。" class="headerlink" title="我们可以通过传递一个对象的方式，实现数据的响应式。"></a>我们可以通过传递一个对象的方式，实现数据的响应式。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 祖先组件</span><br><span class="hljs-title function_">data</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">return</span> &#123;<br>    <span class="hljs-attr">obj</span>:&#123;<span class="hljs-attr">name</span>:<span class="hljs-string">&#x27;dax1&#x27;</span>&#125;,<br>  &#125;<br>&#125;<br><span class="hljs-title function_">provide</span>(<span class="hljs-params"></span>)&#123;<br>  <span class="hljs-keyword">return</span>&#123;<br>    <span class="hljs-attr">username</span>:<span class="hljs-variable language_">this</span>.<span class="hljs-property">obj</span>	<span class="hljs-comment">// 此处provide一个对象</span><br>  &#125;<br>&#125;,<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 后代组件</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>    <span class="hljs-attr">inject</span>: [<span class="hljs-string">&#x27;username&#x27;</span>]    <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>此时 username是响应式的数据，<strong>因为对象的属性是响应的</strong>。</p>
+<p>provide/inject 只能从祖先传递给后代，但是可以通过在App.vue绑定provide，所有的子组件就都能注入inject，从而达到全局传递</p>
 
                 
               </div>
@@ -370,7 +371,9 @@ null代表对象的值未设置，相当于一个对象没有设置指针地址�
       
         <a href="/tags/%E5%89%8D%E7%AB%AF/">#前端</a>
       
-        <a href="/tags/js/">#js</a>
+        <a href="/tags/vue/">#vue</a>
+      
+        <a href="/tags/%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%8F%82/">#组件传参</a>
       
     </div>
   
@@ -382,21 +385,21 @@ null代表对象的值未设置，相当于一个对象没有设置指针地址�
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>js中null和undefined的区别</div>
-      <div>https://guoaccount.github.io/2022/12/06/js中null和undefined的区别/</div>
+      <div>爷孙或者更深嵌套的组件间传值： provide/inject</div>
+      <div>https://guoaccount.github.io/2022/12/14/爷孙或者更深嵌套的组件间传值： provide，inject/</div>
     </div>
     <div class="license-meta">
       
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年12月6日</div>
+          <div>2022年12月14日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年12月14日</div>
+          <div>2023年1月4日</div>
         </div>
       
       
@@ -427,9 +430,9 @@ null代表对象的值未设置，相当于一个对象没有设置指针地址�
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/12/12/%E8%87%AA%E5%AE%9A%E4%B9%89vue%E7%BB%84%E4%BB%B6%E5%B9%B6%E5%AE%9E%E7%8E%B0%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/" title="自定义vue组件并实现双向绑定">
+                      <a href="/2022/12/16/vue%E4%B8%ADprops%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%8F%82/" title="vue中props父子组件传参">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">自定义vue组件并实现双向绑定</span>
+                        <span class="hidden-mobile">vue中props父子组件传参</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -437,8 +440,8 @@ null代表对象的值未设置，相当于一个对象没有设置指针地址�
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/12/05/sudo%E5%92%8Csu%E7%9A%84%E5%8C%BA%E5%88%AB/" title="sudo和su的区别">
-                        <span class="hidden-mobile">sudo和su的区别</span>
+                      <a href="/2022/12/14/MAC%20%E7%94%B5%E8%84%91%E7%9A%84SSD%20%E5%AF%BF%E5%91%BD%E6%9F%A5%E7%9C%8B/" title="MAC 电脑的SSD 寿命查看">
+                        <span class="hidden-mobile">MAC 电脑的SSD 寿命查看</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

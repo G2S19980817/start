@@ -16,26 +16,25 @@
   <meta name="author" content="">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Happiness is not in the mere possession of money; it lies in the joy of achievement, in the thrill of creative effort.— Franklin D. Roosevelt   undefind 是全局对象的一个属性，当一个变量没有被赋值或者一个函数没有返回值或者某个对象不存在某个属性">
+    <meta name="description" content="vue是单向数据流，父组件通过props传值给子组件，如果在子组件中修改会报错，一般是不在子组件中修改props的，但偶尔有需要在子组件有修改props,这里介绍三种可以修改子组件props的方法。 1.父组件用sync修饰，子组件通过$emit(‘update:参数’，值)函数去修改。在项目中通常可以用改方法关闭弹框。123456789101112&lt;template&gt;	&#x2F;&#x2F;父组件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js中null和undefined的区别">
-<meta property="og:url" content="https://guoaccount.github.io/2022/12/06/js%E4%B8%ADnull%E5%92%8Cundefined%E7%9A%84%E5%8C%BA%E5%88%AB/index.html">
+<meta property="og:title" content="vue中props父子组件传参">
+<meta property="og:url" content="https://guoaccount.github.io/2022/12/16/vue%E4%B8%ADprops%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%8F%82/index.html">
 <meta property="og:site_name" content="郭顺顺的博客">
-<meta property="og:description" content="Happiness is not in the mere possession of money; it lies in the joy of achievement, in the thrill of creative effort.— Franklin D. Roosevelt   undefind 是全局对象的一个属性，当一个变量没有被赋值或者一个函数没有返回值或者某个对象不存在某个属性">
+<meta property="og:description" content="vue是单向数据流，父组件通过props传值给子组件，如果在子组件中修改会报错，一般是不在子组件中修改props的，但偶尔有需要在子组件有修改props,这里介绍三种可以修改子组件props的方法。 1.父组件用sync修饰，子组件通过$emit(‘update:参数’，值)函数去修改。在项目中通常可以用改方法关闭弹框。123456789101112&lt;template&gt;	&#x2F;&#x2F;父组件">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://images.unsplash.com/photo-1658248165140-f58976e1551d?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNjM5Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzAyOTM0Mjk&ixlib=rb-4.0.3&q=80&w=3840%C3%971600">
-<meta property="article:published_time" content="2022-12-06T02:26:32.090Z">
-<meta property="article:modified_time" content="2022-12-14T12:31:14.856Z">
+<meta property="og:image" content="https://images.unsplash.com/photo-1651589091693-c55e2d0d0032?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNjM5Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzEwODQ5MzQ&ixlib=rb-4.0.3&q=80&w=3840%C3%971600">
+<meta property="article:published_time" content="2022-12-16T10:46:34.127Z">
+<meta property="article:modified_time" content="2023-01-04T12:18:07.684Z">
 <meta property="article:tag" content="前端">
-<meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://images.unsplash.com/photo-1658248165140-f58976e1551d?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNjM5Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzAyOTM0Mjk&ixlib=rb-4.0.3&q=80&w=3840%C3%971600">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1651589091693-c55e2d0d0032?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNjM5Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzEwODQ5MzQ&ixlib=rb-4.0.3&q=80&w=3840%C3%971600">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>js中null和undefined的区别 - 郭顺顺的博客</title>
+  <title>vue中props父子组件传参 - 郭顺顺的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -215,7 +214,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="js中null和undefined的区别"></span>
+            <span id="subtitle" data-typed-text="vue中props父子组件传参"></span>
           
         </div>
 
@@ -226,8 +225,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-12-06 10:26" pubdate>
-          2022年12月6日 上午
+        <time datetime="2022-12-16 18:46" pubdate>
+          2022年12月16日 晚上
         </time>
       </span>
     
@@ -238,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          967 字
+          2.5k 字
         
       </span>
     
@@ -249,7 +248,7 @@
         
         
         
-          9 分钟
+          22 分钟
         
       </span>
     
@@ -295,12 +294,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">js中null和undefined的区别</h1>
+            <h1 style="display: none">vue中props父子组件传参</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：21 天前
+                    本文最后更新于：1 分钟前
                   
                 
               </p>
@@ -308,33 +307,32 @@
             
               <div class="markdown-body">
                 
-                <p><img src="https://images.unsplash.com/photo-1658248165140-f58976e1551d?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNjM5Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzAyOTM0Mjk&ixlib=rb-4.0.3&q=80&w=3840%C3%971600" srcset="/img/loading.gif" lazyload alt="photo by Resource Database™ on Unsplash"></p>
-<blockquote>
-<p>Happiness is not in the mere possession of money; it lies in the joy of achievement, in the thrill of creative effort.<br>— <cite>Franklin D. Roosevelt</cite></p>
-</blockquote>
-<p class="note note-primary">
-undefind 是全局对象的一个属性，当一个变量没有被赋值或者一个函数没有返回值或者某个对象不存在某个属性却去访问或者函数定义了形参但没有传递实参，这时候都是undefined。
-</p>
-<p class="note note-primary">
-undefined通过typeof判断类型是'undefined'。undefined == undefined undefined === undefined 。
-</p>
-<p class="note note-primary">
-null代表对象的值未设置，相当于一个对象没有设置指针地址就是null。null通过typeof判断类型是'object'。
-</p>
+                <p><img src="https://images.unsplash.com/photo-1651589091693-c55e2d0d0032?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzNjM5Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzEwODQ5MzQ&ixlib=rb-4.0.3&q=80&w=3840%C3%971600" srcset="/img/loading.gif" lazyload alt="photo by Cory Bunge on Unsplash"></p>
+<p>vue是<strong>单向数据流</strong>，父组件通过props传值给子组件，如果在子组件中修改会报错，一般是不在子组件中修改props的，但偶尔有需要在子组件有修改props,这里介绍三种可以修改子组件props的方法。</p>
+<h1 id="1-父组件用sync修饰，子组件通过-emit-‘update-参数’，值-函数去修改。在项目中通常可以用改方法关闭弹框。"><a href="#1-父组件用sync修饰，子组件通过-emit-‘update-参数’，值-函数去修改。在项目中通常可以用改方法关闭弹框。" class="headerlink" title="1.父组件用sync修饰，子组件通过$emit(‘update:参数’，值)函数去修改。在项目中通常可以用改方法关闭弹框。"></a>1.父组件用sync修饰，子组件通过$emit(‘update:参数’，值)函数去修改。在项目中通常可以用改方法关闭弹框。</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>	//父组件<br>   &lt;CommonDialog<br>     :title=&quot;dialogTitle&quot;<br>     :showDialog.sync=&quot;isShowDialog&quot;<br>     :footer=&quot;true&quot;<br>     :width=&quot;dialogWidth&quot;<br>   &gt;<br>  	....<br>   &lt;/CommonDialog&gt;<br>&lt;/template&gt;<br><br></code></pre></td></tr></table></figure>
+<template>
+    //父组件
+   <CommonDialog
+     :title="dialogTitle"
+     :showDialog.sync="isShowDialog"
+     :footer="true"
+     :width="dialogWidth"
+   >
+      ....
+   </CommonDialog>
+</template>
 
-<p><em>null === null null == null null == undefined null !== undefined</em></p>
-<h1 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h1><p>undefined 表示一个变量初始状态值，而 null 则表示一个变量被人为的设置为空对象，而不是原始状态。</p>
-<p>在实际使用过程中，不需要对一个变量显式的赋值 undefined，当需要释放一个对象时，直接赋值为 null 即可。 让一个变量为null，直接给该变量赋值为null即可。</p>
-<p>null 其实属于自己的类型 Null，而不属于Object类型，typeof 之所以会判定为 Object 类型，是因为JavaScript 数据类型在底层都是以二进制的形式表示的，二进制的前三位为 0 会被 typeof 判断为对象类型，而 null 的二进制位恰好都是 0 ，因此，null 被误判断为 Object 类型。 对象被赋值了null 以后，对象对应的堆内存中的值就是游离状态了，GC 会择机回收该值并释放内存。</p>
-<p>因此，需要释放某个对象，就将变量设置为 null，即表示该对象已经被清空，目前无效状态。</p>
-<h1 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h1><ol>
-<li>null是一个引用内存地址为空的对象。</li>
-<li>undefined是一个被定义但未被初始化的变量。</li>
-<li>undefined不是关键字，而null是关键字。</li>
-<li>undefined和null被转换为布尔值的时候，两者都为false。</li>
-<li>undefined在和null进行==比较时两者相等，全等于比较时两者不等</li>
-<li>使用Number()对undefined和null进行类型转换，null为0，undefined为NaN</li>
-</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs vue">//子组件 弹框是否打开props: showDialog<br>&lt;el-dialog :title=&quot;title&quot; :visible=&quot;showDialog&quot; :show-close=&quot;false&quot; :width=&quot;width&quot;&gt;<br>      &lt;i class=&quot;el-dialog__headerbtn&quot; @click=&quot;closeModal&quot;&gt;<br>        &lt;span class=&quot;iconfont iconclose&quot;&gt;&lt;/span&gt;<br>      &lt;/i&gt;<br>      &lt;div class=&quot;dialog-body&quot;&gt;<br>          &lt;slot&gt;&lt;/slot&gt;<br>      &lt;/div&gt;<br>      &lt;div v-if=&quot;!footer&quot; slot=&quot;footer&quot; class=&quot;dialog-footer&quot;&gt;<br>        &lt;slot name=&quot;footer&quot;&gt;&lt;/slot&gt;<br>      &lt;/div&gt;<br>    &lt;/el-dialog&gt;<br><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//关闭弹框------子组件修改props</span><br> <span class="hljs-title function_">closeModal</span>(<span class="hljs-params"></span>) &#123;<br>   <span class="hljs-variable language_">this</span>.$emit(<span class="hljs-string">&quot;update:showDialog&quot;</span>, <span class="hljs-literal">false</span>);<br> &#125;,<br></code></pre></td></tr></table></figure>
+
+<h1 id="2-如果props是对象，在子组件中修改props"><a href="#2-如果props是对象，在子组件中修改props" class="headerlink" title="2.如果props是对象，在子组件中修改props"></a>2.如果props是对象，在子组件中修改props</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>  &lt;div class=&quot;csd-select&quot;&gt;<br>    &lt;el-popover<br>      placement=&quot;bottom&quot;<br>      :width=&quot;width&quot;<br>      :trigger=&quot;config.trigger&quot;<br>      :config=&quot;config&quot;<br>      transition=&quot;fade-in&quot;<br>      popper-class=&quot;casade-selector&quot;<br>      v-model=&quot;options_show&quot;<br>    &gt;<br>	...<br>    &lt;/el-popover&gt;<br>  &lt;/div&gt;<br>&lt;/template&gt;<br>&lt;script&gt;<br>export default &#123;<br>  name: &quot;CasadeSelector&quot;,<br>  props: &#123;<br>    config: &#123;<br>      type: Object,<br>      //让props默认返回<br>      default() &#123;<br>        return &#123;&#125;;<br>      &#125;<br>    &#125;,<br>  &#125;,<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<h1 id="3-props是双向绑定的"><a href="#3-props是双向绑定的" class="headerlink" title="3.props是双向绑定的"></a>3.props是双向绑定的</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>    &lt;control v-model=&quot;deviceF&quot;&gt;&lt;/control&gt;<br>&lt;/template&gt;<br><br> //v-model里面写上我们要传给子组件，并且还会在子组件中改变这个值<br> &lt;script&gt;<br> import control from &#x27;@/components/control&#x27;<br> export default &#123;<br>    name:&quot;test&quot;,<br>    components: &#123;<br>        control<br>    &#125;,<br>    data () &#123;<br>        return &#123;<br>        deviceF: true,<br>        &#125;<br>    &#125;<br>&#125;<br> &lt;/script&gt;<br><br></code></pre></td></tr></table></figure>
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>   &lt;div&gt;<br>       &#123;&#123;device&#125;&#125;<br>       &lt;button @click=&quot;look&quot;&gt;改变值&lt;/button&gt;<br>   &lt;/div&gt;<br>&lt;/template&gt;<br>&lt;script&gt;<br>export default &#123;<br> data () &#123;<br>   return &#123;<br>     device: this.value,  //定义一下<br>   &#125;<br> &#125;,<br> props: [&#x27;value&#x27;],//因为想要改变device，所以device要写成value，这里是写死的<br> components: &#123;<br> &#125;,<br> methods: &#123;<br>   look () &#123;<br>     this.device = !this.device<br>     this.$emit(&#x27;input&#x27;, this.device)  //这样this.device就会被修改；前面的input是固定写死的<br>   &#125;<br> &#125;<br>&#125;<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -370,8 +368,6 @@ null代表对象的值未设置，相当于一个对象没有设置指针地址�
       
         <a href="/tags/%E5%89%8D%E7%AB%AF/">#前端</a>
       
-        <a href="/tags/js/">#js</a>
-      
     </div>
   
 </div>
@@ -382,21 +378,21 @@ null代表对象的值未设置，相当于一个对象没有设置指针地址�
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>js中null和undefined的区别</div>
-      <div>https://guoaccount.github.io/2022/12/06/js中null和undefined的区别/</div>
+      <div>vue中props父子组件传参</div>
+      <div>https://guoaccount.github.io/2022/12/16/vue中props父子组件传参/</div>
     </div>
     <div class="license-meta">
       
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年12月6日</div>
+          <div>2022年12月16日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年12月14日</div>
+          <div>2023年1月4日</div>
         </div>
       
       
@@ -427,9 +423,9 @@ null代表对象的值未设置，相当于一个对象没有设置指针地址�
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/12/12/%E8%87%AA%E5%AE%9A%E4%B9%89vue%E7%BB%84%E4%BB%B6%E5%B9%B6%E5%AE%9E%E7%8E%B0%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/" title="自定义vue组件并实现双向绑定">
+                      <a href="/2022/12/17/%E8%A1%8C%E5%86%85%E5%9D%97%E5%85%83%E7%B4%A0%E5%B8%A6%E6%9D%A5%E7%9A%84%E7%A9%BA%E6%A0%BC%E6%88%96%E7%A9%BA%E7%99%BD%E9%97%AE%E9%A2%98/" title="行内块元素带来的空格或空白问题">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">自定义vue组件并实现双向绑定</span>
+                        <span class="hidden-mobile">行内块元素带来的空格或空白问题</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -437,8 +433,8 @@ null代表对象的值未设置，相当于一个对象没有设置指针地址�
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/12/05/sudo%E5%92%8Csu%E7%9A%84%E5%8C%BA%E5%88%AB/" title="sudo和su的区别">
-                        <span class="hidden-mobile">sudo和su的区别</span>
+                      <a href="/2022/12/14/%E7%88%B7%E5%AD%99%E6%88%96%E8%80%85%E6%9B%B4%E6%B7%B1%E5%B5%8C%E5%A5%97%E7%9A%84%E7%BB%84%E4%BB%B6%E9%97%B4%E4%BC%A0%E5%80%BC%EF%BC%9A%20provide%EF%BC%8Cinject/" title="爷孙或者更深嵌套的组件间传值： provide/inject">
+                        <span class="hidden-mobile">爷孙或者更深嵌套的组件间传值： provide/inject</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
